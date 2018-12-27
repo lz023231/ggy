@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/client/main.py" line="25" mnemonic="3" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="de866fe8-51a6-4acc-b091-dcfd06c1aa6f" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -16,7 +19,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/login.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
+            <state relative-caret-position="-8">
               <caret line="18" column="33" selection-start-line="18" selection-start-column="33" selection-end-line="18" selection-end-column="33" />
               <folding>
                 <element signature="e#0#30#0" expanded="true" />
@@ -26,18 +29,9 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Login/gyyLogin.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="19">
-              <caret line="1" selection-start-line="1" selection-end-line="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/clientPage.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
+            <state relative-caret-position="-8">
               <caret line="9" selection-start-line="9" selection-end-line="9" />
               <folding>
                 <element signature="e#0#47#0" expanded="true" />
@@ -46,11 +40,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="9" column="54" lean-forward="true" selection-start-line="9" selection-start-column="54" selection-end-line="9" selection-end-column="54" />
+            <state relative-caret-position="377">
+              <caret line="57" column="22" lean-forward="true" selection-start-line="57" selection-start-column="22" selection-end-line="57" selection-end-column="22" />
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
               </folding>
@@ -58,18 +52,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Login/main.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="332">
-              <caret line="40" column="21" lean-forward="true" selection-start-line="40" selection-start-column="21" selection-end-line="40" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Login/__init__.py">
-          <provider selected="true" editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-8" />
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -80,6 +67,10 @@
         <option value="Python Script" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -102,6 +93,7 @@
     <option name="width" value="1448" />
     <option name="height" value="868" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -132,8 +124,8 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Python" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/CX.PY" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -152,42 +144,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python tests.Unittests for main.ClientTest.test_1_client">
-    <configuration name="clientPage" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="ggy" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/client" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/client/clientPage.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Unittests for Login.main.LoginTest" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
-      <module name="ggy" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;Login.main.LoginTest&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Python tests.Unittests for main.ClientTest.test_3_addUserS">
     <configuration name="Unittests for Login.main.LoginTest" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <module name="ggy" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -258,6 +215,20 @@
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
+    <configuration name="Unittests for main.ClientTest.test_3_addUserS" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <module name="ggy" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/client" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;main.ClientTest.test_3_addUserS&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
     <configuration name="Unittests in main.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <module name="ggy" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -274,11 +245,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python tests.Unittests for main.ClientTest.test_1_client" />
+        <item itemvalue="Python tests.Unittests for main.ClientTest.test_3_addUserS" />
         <item itemvalue="Python tests.Unittests for main.ClientTest.test_2_showClient" />
-        <item itemvalue="Python tests.Unittests in main.py" />
+        <item itemvalue="Python tests.Unittests for main.ClientTest.test_1_client" />
         <item itemvalue="Python tests.Unittests for main.ClientTest" />
-        <item itemvalue="Python.clientPage" />
+        <item itemvalue="Python tests.Unittests in main.py" />
       </list>
     </recent_temporary>
   </component>
@@ -296,54 +267,63 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Unittests_in_main_py - 2018.12.18 at 18h 49m 48s.xml">
-      <configuration name="Unittests in main.py" configurationId="tests" />
+    <history-entry file="Unittests_for_main_ClientTest_test_2_showClient - 2018.12.27 at 17h 08m 12s.xml">
+      <configuration name="Unittests for main.ClientTest.test_2_showClient" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_main_py - 2018.12.18 at 18h 49m 51s.xml">
-      <configuration name="Unittests in main.py" configurationId="tests" />
+    <history-entry file="Unittests_for_main_ClientTest_test_2_showClient - 2018.12.27 at 17h 09m 14s.xml">
+      <configuration name="Unittests for main.ClientTest.test_2_showClient" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_for_main_ClientTest - 2018.12.18 at 18h 54m 02s.xml">
+    <history-entry file="Unittests_for_main_ClientTest_test_3_addUserS - 2018.12.27 at 17h 28m 39s.xml">
+      <configuration name="Unittests for main.ClientTest.test_3_addUserS" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_main_ClientTest - 2018.12.27 at 17h 31m 17s.xml">
       <configuration name="Unittests for main.ClientTest" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_main_py - 2018.12.18 at 19h 04m 08s.xml">
-      <configuration name="Unittests in main.py" configurationId="tests" />
+    <history-entry file="Unittests_for_main_ClientTest_test_3_addUserS - 2018.12.27 at 18h 03m 02s.xml">
+      <configuration name="Unittests for main.ClientTest.test_3_addUserS" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_main_py - 2018.12.18 at 19h 06m 01s.xml">
-      <configuration name="Unittests in main.py" configurationId="tests" />
+    <history-entry file="Unittests_for_main_ClientTest_test_3_addUserS - 2018.12.27 at 18h 05m 01s.xml">
+      <configuration name="Unittests for main.ClientTest.test_3_addUserS" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_for_main_ClientTest_test_2_showClient - 2018.12.18 at 19h 06m 44s.xml">
-      <configuration name="Unittests for main.ClientTest.test_2_showClient" configurationId="tests" />
+    <history-entry file="Unittests_for_main_ClientTest_test_3_addUserS - 2018.12.27 at 18h 10m 08s.xml">
+      <configuration name="Unittests for main.ClientTest.test_3_addUserS" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_main_py - 2018.12.18 at 19h 09m 05s.xml">
-      <configuration name="Unittests in main.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_for_main_ClientTest_test_2_showClient - 2018.12.18 at 19h 10m 54s.xml">
-      <configuration name="Unittests for main.ClientTest.test_2_showClient" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_for_main_ClientTest_test_1_client - 2018.12.18 at 19h 11m 21s.xml">
+    <history-entry file="Unittests_for_main_ClientTest_test_1_client - 2018.12.27 at 18h 17m 26s.xml">
       <configuration name="Unittests for main.ClientTest.test_1_client" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_for_main_ClientTest_test_1_client - 2018.12.18 at 19h 12m 08s.xml">
-      <configuration name="Unittests for main.ClientTest.test_1_client" configurationId="tests" />
+    <history-entry file="Unittests_for_main_ClientTest_test_2_showClient - 2018.12.27 at 18h 18m 06s.xml">
+      <configuration name="Unittests for main.ClientTest.test_2_showClient" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_main_ClientTest_test_3_addUserS - 2018.12.27 at 18h 20m 36s.xml">
+      <configuration name="Unittests for main.ClientTest.test_3_addUserS" configurationId="tests" />
     </history-entry>
   </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
   <component name="ToolWindowManager">
-    <frame x="-4" y="-4" width="1448" height="868" extended-state="6" />
+    <frame x="-4" y="-4" width="1448" height="868" extended-state="7" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.120592386" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.2496474" />
-      <window_info id="Favorites" order="2" side_tool="true" weight="0.3293371" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4904051" visible="true" weight="0.120592386" />
+      <window_info id="Structure" order="1" sideWeight="0.50959486" side_tool="true" weight="0.120592386" />
+      <window_info id="Favorites" order="2" sideWeight="0.50808626" side_tool="true" weight="0.120592386" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.29340512" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.04043127" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32884097" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32884097" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Python Console" order="10" />
+      <window_info anchor="bottom" id="Python Console" order="10" weight="0.32884097" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -353,9 +333,31 @@
     <entry file="file://$PROJECT_DIR$/ii.py" />
     <entry file="file://$PROJECT_DIR$/test.py" />
     <entry file="file://$PROJECT_DIR$/ee.py" />
+    <entry file="file://$PROJECT_DIR$/Login/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-8" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Login/gyyLogin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Login/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="492">
+          <caret line="53" column="19" lean-forward="true" selection-start-line="53" selection-start-column="19" selection-end-line="53" selection-end-column="19" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/login.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
+        <state relative-caret-position="-8">
           <caret line="18" column="33" selection-start-line="18" selection-start-column="33" selection-end-line="18" selection-end-column="33" />
           <folding>
             <element signature="e#0#30#0" expanded="true" />
@@ -363,19 +365,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Login/gyyLogin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Login/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/clientPage.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
+        <state relative-caret-position="-8">
           <caret line="9" selection-start-line="9" selection-end-line="9" />
           <folding>
             <element signature="e#0#47#0" expanded="true" />
@@ -385,18 +377,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" column="54" lean-forward="true" selection-start-line="9" selection-start-column="54" selection-end-line="9" selection-end-column="54" />
+        <state relative-caret-position="377">
+          <caret line="57" column="22" lean-forward="true" selection-start-line="57" selection-start-column="22" selection-end-line="57" selection-end-column="22" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Login/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="332">
-          <caret line="40" column="21" lean-forward="true" selection-start-line="40" selection-start-column="21" selection-end-line="40" selection-end-column="21" />
         </state>
       </provider>
     </entry>
