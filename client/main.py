@@ -57,7 +57,13 @@ class ClientTest(unittest.TestCase):
         self.selectHost()
         self.addUser()
         time.sleep(1)
-
+        self.driver.find_element_by_xpath("//input[@value='确认']").click()
+        time.sleep(1)
+        self.driver.find_element_by_xpath("//input[@value='取消']").click()
+        self.addUser()
+        self.driver.find_element_by_name('maxonlinenum').clear()
+        self.driver.find_element_by_name('maxonlinenum').send_keys(1)
+        time.sleep(3)
 
     def tearDown(self):
         time.sleep(1)
