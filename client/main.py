@@ -68,6 +68,6 @@ class ClientTest(unittest.TestCase):
     def tearDown(self):
         time.sleep(1)
         self.driver.quit()
-
+        print('test')
 if __name__ == '__main__':
     unittest.main()

@@ -48,7 +48,7 @@ class LoginTest(unittest.TestCase):
     def tearDown(self):
         time.sleep(2)
         self.driver.quit()
-
+        
 
 if __name__ == '__main__':
     unittest.main()
