@@ -2,10 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="de866fe8-51a6-4acc-b091-dcfd06c1aa6f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/ggy.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ggy.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Login/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Login/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/client/main.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -27,7 +23,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Login/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="464">
+            <state relative-caret-position="1290">
               <caret line="46" column="21" selection-start-line="46" selection-start-column="21" selection-end-line="46" selection-end-column="21" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
@@ -40,7 +36,10 @@
         <entry file="file://$PROJECT_DIR$/client/main.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="587">
-              <caret line="70" column="19" selection-start-line="70" selection-start-column="19" selection-end-line="70" selection-end-column="19" />
+              <caret line="81" column="26" selection-start-line="81" selection-start-column="26" selection-end-line="81" selection-end-column="26" />
+              <folding>
+                <element signature="e#0#31#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -131,7 +130,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python tests.Unittests for main.ClientTest.test_3_addUserS">
+  <component name="RunManager" selected="Python tests.Unittests for main.ClientTest.test_2_showClient">
     <configuration name="Unittests for Login.main.LoginTest" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <module name="ggy" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -232,10 +231,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python tests.Unittests for main.ClientTest.test_3_addUserS" />
         <item itemvalue="Python tests.Unittests for main.ClientTest.test_2_showClient" />
-        <item itemvalue="Python tests.Unittests for main.ClientTest.test_1_client" />
         <item itemvalue="Python tests.Unittests for main.ClientTest" />
+        <item itemvalue="Python tests.Unittests for main.ClientTest.test_3_addUserS" />
+        <item itemvalue="Python tests.Unittests for main.ClientTest.test_1_client" />
         <item itemvalue="Python tests.Unittests in main.py" />
       </list>
     </recent_temporary>
@@ -254,24 +253,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Unittests_for_main_ClientTest_test_3_addUserS - 2018.12.27 at 18h 03m 02s.xml">
-      <configuration name="Unittests for main.ClientTest.test_3_addUserS" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_for_main_ClientTest_test_3_addUserS - 2018.12.27 at 18h 05m 01s.xml">
-      <configuration name="Unittests for main.ClientTest.test_3_addUserS" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_for_main_ClientTest_test_3_addUserS - 2018.12.27 at 18h 10m 08s.xml">
-      <configuration name="Unittests for main.ClientTest.test_3_addUserS" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_for_main_ClientTest_test_1_client - 2018.12.27 at 18h 17m 26s.xml">
-      <configuration name="Unittests for main.ClientTest.test_1_client" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_for_main_ClientTest_test_2_showClient - 2018.12.27 at 18h 18m 06s.xml">
-      <configuration name="Unittests for main.ClientTest.test_2_showClient" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_for_main_ClientTest_test_3_addUserS - 2018.12.27 at 18h 20m 36s.xml">
-      <configuration name="Unittests for main.ClientTest.test_3_addUserS" configurationId="tests" />
-    </history-entry>
     <history-entry file="Unittests_for_main_ClientTest_test_3_addUserS - 2018.12.27 at 19h 51m 54s.xml">
       <configuration name="Unittests for main.ClientTest.test_3_addUserS" configurationId="tests" />
     </history-entry>
@@ -283,6 +264,24 @@
     </history-entry>
     <history-entry file="Unittests_for_main_ClientTest_test_3_addUserS - 2018.12.27 at 19h 57m 29s.xml">
       <configuration name="Unittests for main.ClientTest.test_3_addUserS" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_main_ClientTest_test_2_showClient - 2019.01.01 at 21h 09m 16s.xml">
+      <configuration name="Unittests for main.ClientTest.test_2_showClient" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_main_ClientTest - 2019.01.01 at 21h 14m 24s.xml">
+      <configuration name="Unittests for main.ClientTest" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_main_ClientTest_test_2_showClient - 2019.01.01 at 21h 18m 27s.xml">
+      <configuration name="Unittests for main.ClientTest.test_2_showClient" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_main_ClientTest - 2019.01.01 at 21h 20m 15s.xml">
+      <configuration name="Unittests for main.ClientTest" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_main_ClientTest_test_2_showClient - 2019.01.01 at 21h 21m 24s.xml">
+      <configuration name="Unittests for main.ClientTest.test_2_showClient" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_main_ClientTest_test_2_showClient - 2019.01.01 at 21h 27m 15s.xml">
+      <configuration name="Unittests for main.ClientTest.test_2_showClient" configurationId="tests" />
     </history-entry>
   </component>
   <component name="TodoView">
@@ -297,12 +296,12 @@
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4904051" visible="true" weight="0.1205074" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4904051" visible="true" weight="0.1205074" />
       <window_info id="Structure" order="1" sideWeight="0.50959486" side_tool="true" weight="0.120592386" />
       <window_info id="Favorites" order="2" sideWeight="0.50808626" side_tool="true" weight="0.120592386" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.15363881" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32731378" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -334,7 +333,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Login/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="464">
+        <state relative-caret-position="1290">
           <caret line="46" column="21" selection-start-line="46" selection-start-column="21" selection-end-line="46" selection-end-column="21" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
@@ -345,7 +344,10 @@
     <entry file="file://$PROJECT_DIR$/client/main.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="587">
-          <caret line="70" column="19" selection-start-line="70" selection-start-column="19" selection-end-line="70" selection-end-column="19" />
+          <caret line="81" column="26" selection-start-line="81" selection-start-column="26" selection-end-line="81" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

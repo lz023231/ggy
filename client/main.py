@@ -1,4 +1,9 @@
 from client.clientPage import *
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import *
+from selenium.common.exceptions import TimeoutException
 import time
 import unittest
 from selenium import webdriver
@@ -14,7 +19,14 @@ class ClientTest(unittest.TestCase):
         Login().login(self.driver, username, password)
         time.sleep(2)
     def pubApp(self):
-        self.driver.find_element_by_xpath("//a[contains(text(),'发布应用')]").click()
+        try:
+            #检查发布应用按钮是否为可见并且是可点击的
+            #self.driver.find_element_by_xpath("//a[contains(text(),'发布应用')]").click()
+            element = WebDriverWait(self.driver,10,1).until(EC.element_to_be_clickable((By.ID,"btnIssueApp")))
+            #WebDriverWait(self.driver,10).until(lambda x: x)
+            element.click()
+        except:
+            print('发布应用出错')
     def addUser(self):
         self.driver.find_element_by_xpath("//a[contains(text(),'加用户')]").click()
     def clickUser(self):
@@ -68,6 +80,5 @@ class ClientTest(unittest.TestCase):
     def tearDown(self):
         time.sleep(1)
         self.driver.quit()
-        print('test')
 if __name__ == '__main__':
     unittest.main()
