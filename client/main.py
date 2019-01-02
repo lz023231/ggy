@@ -28,11 +28,42 @@ class ClientTest(unittest.TestCase):
         except:
             print('发布应用出错')
     def addUser(self):
-        self.driver.find_element_by_xpath("//a[contains(text(),'加用户')]").click()
+        try:
+            #self.driver.find_element_by_xpath("//a[contains(text(),'加用户')]").click()
+            element = WebDriverWait(self.driver,10,1).until(EC.element_to_be_clickable((By.XPATH,"//a[contains(text(),'加用户')]")))
+            element.click()
+        except:
+            print('添加用户出错')
     def clickUser(self):
-        self.driver.find_element_by_xpath('//a[contains(text(),"客户")]').click()
+        try:
+            element = WebDriverWait(self.driver,10,1).until(EC.element_to_be_clickable((By.XPATH,"//a[contains(text(),'客户')]")))
+            element.click()
+            #self.driver.find_element_by_xpath('//a[contains(text(),"客户")]').click()
+        except:
+            print('跳转到客户界面出错')
     def selectHost(self):
-        self.driver.find_element_by_xpath("//table/*/tr/td/div/input[@value='12879']").click()
+        t = self.driver.find_element_by_xpath("//table/*/tr/td/div/input[@value='12879']").is_selected()
+        print(t)
+        while t == False:
+            try:
+                element = WebDriverWait(self.driver,10,1).until(EC.element_to_be_clickable((By.XPATH,"//table/*/tr/td/div/input[@value='12879']")))
+                element.click()
+                if t == True:
+                    return
+                break
+            except:
+                print('选择主机失败')
+    '''
+        if t == False:
+            #try:
+            element = WebDriverWait(self.driver,10,1).until(EC.element_to_be_clickable((By.XPATH,"//table/*/tr/td/div/input[@value='12879']")))
+            element.click()
+            print('--------')
+            #except:
+                #print('选择主机失败')
+        else:
+            print('主机已经选上')
+    '''
     def test_1_client(self):
         #path1='//a[contains(text(),"客户")]'
         #self.driver.find_element_by_xpath('//a[contains(text(),"客户")]').click()
