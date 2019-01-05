@@ -41,7 +41,7 @@ class LoginCase(unittest.TestCase):
         sleep(2)
         print('测试完成')
         self.driver.quit()
-
+        print('test test')
 
 
 
