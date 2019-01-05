@@ -101,11 +101,35 @@ class ClientTest(unittest.TestCase):
         self.addUser()
         time.sleep(1)
         self.driver.find_element_by_xpath("//input[@value='确认']").click()
+        try:
+            self.driver.find_element_by_xpath("//div[contains(text(),'请设置正确的登陆用户数')]").is_displayed()
+        except:
+            print('没有出现提示')
+        else:
+            print('出现提示')
         time.sleep(1)
         self.driver.find_element_by_xpath("//input[@value='取消']").click()
         self.addUser()
         self.driver.find_element_by_name('maxonlinenum').clear()
         self.driver.find_element_by_name('maxonlinenum').send_keys(1)
+        self.driver.find_element_by_xpath("//input[@value='确认']").click()
+        time.sleep(3)
+        try:
+            self.driver.find_element_by_xpath("//div[contains(text(),'此次操作扣费')]").is_displayed()
+        except:
+            print('没有出现提示')
+        else:
+            print('出现提示')
+        self.driver.find_element_by_xpath("//input[@value='取消']"). click()
+        self.addUser()
+        self.driver.find_element_by_name('maxonlinenum').clear()
+        self.driver.find_element_by_name('maxonlinenum').send_keys(1)
+        try:
+            self.driver.find_element_by_xpath("//div[contains(text(),'此次操作扣费')]").is_displayed()
+        except:
+            print('没有出现提示')
+        else:
+            print('出现提示')
         time.sleep(3)
 
     def tearDown(self):
