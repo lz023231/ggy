@@ -2,6 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="de866fe8-51a6-4acc-b091-dcfd06c1aa6f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/ggy.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ggy.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/client/main.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,7 +26,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Login/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="767">
+            <state relative-caret-position="415">
               <caret line="46" column="21" selection-start-line="46" selection-start-column="21" selection-end-line="46" selection-end-column="21" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
@@ -35,11 +38,20 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="680">
-              <caret line="83" column="53" selection-start-line="83" selection-start-column="53" selection-end-line="83" selection-end-column="53" />
+            <state relative-caret-position="301">
+              <caret line="116" column="12" lean-forward="true" selection-start-line="116" selection-start-column="12" selection-end-line="116" selection-end-column="12" />
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Login/gyyLogin.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="209">
+              <caret line="11" selection-start-line="11" selection-end-line="11" />
             </state>
           </provider>
         </entry>
@@ -102,6 +114,10 @@
               <item name="ggy" type="462c0819:PsiDirectoryNode" />
               <item name="Login" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="ggy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -111,7 +127,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../CX.PY" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.General" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Python" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -130,7 +146,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python tests.Unittests for main.ClientTest.test_2_showClient">
+  <component name="RunManager" selected="Python tests.Unittests for main.ClientTest.test_3_addUserS">
     <configuration name="Unittests for Login.main.LoginTest" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <module name="ggy" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -231,10 +247,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python tests.Unittests for main.ClientTest.test_3_addUserS" />
         <item itemvalue="Python tests.Unittests for main.ClientTest.test_2_showClient" />
         <item itemvalue="Python tests.Unittests in main.py" />
         <item itemvalue="Python tests.Unittests for main.ClientTest" />
-        <item itemvalue="Python tests.Unittests for main.ClientTest.test_3_addUserS" />
         <item itemvalue="Python tests.Unittests for main.ClientTest.test_1_client" />
       </list>
     </recent_temporary>
@@ -253,21 +269,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Unittests_in_main_py - 2019.01.02 at 22h 58m 12s.xml">
-      <configuration name="Unittests in main.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_for_main_ClientTest_test_2_showClient - 2019.01.02 at 23h 00m 10s.xml">
-      <configuration name="Unittests for main.ClientTest.test_2_showClient" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_for_main_ClientTest_test_2_showClient - 2019.01.02 at 23h 01m 14s.xml">
-      <configuration name="Unittests for main.ClientTest.test_2_showClient" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_for_main_ClientTest_test_2_showClient - 2019.01.02 at 23h 02m 04s.xml">
-      <configuration name="Unittests for main.ClientTest.test_2_showClient" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_for_main_ClientTest_test_2_showClient - 2019.01.02 at 23h 02m 42s.xml">
-      <configuration name="Unittests for main.ClientTest.test_2_showClient" configurationId="tests" />
-    </history-entry>
     <history-entry file="Unittests_for_main_ClientTest_test_2_showClient - 2019.01.02 at 23h 04m 04s.xml">
       <configuration name="Unittests for main.ClientTest.test_2_showClient" configurationId="tests" />
     </history-entry>
@@ -283,6 +284,21 @@
     <history-entry file="Unittests_for_main_ClientTest_test_2_showClient - 2019.01.02 at 23h 10m 01s.xml">
       <configuration name="Unittests for main.ClientTest.test_2_showClient" configurationId="tests" />
     </history-entry>
+    <history-entry file="Unittests_for_main_ClientTest_test_3_addUserS - 2019.01.05 at 18h 37m 53s.xml">
+      <configuration name="Unittests for main.ClientTest.test_3_addUserS" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_main_ClientTest_test_3_addUserS - 2019.01.05 at 18h 39m 45s.xml">
+      <configuration name="Unittests for main.ClientTest.test_3_addUserS" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_main_ClientTest_test_3_addUserS - 2019.01.05 at 18h 41m 11s.xml">
+      <configuration name="Unittests for main.ClientTest.test_3_addUserS" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_main_ClientTest_test_3_addUserS - 2019.01.05 at 18h 42m 09s.xml">
+      <configuration name="Unittests for main.ClientTest.test_3_addUserS" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_main_ClientTest_test_3_addUserS - 2019.01.05 at 18h 43m 18s.xml">
+      <configuration name="Unittests for main.ClientTest.test_3_addUserS" configurationId="tests" />
+    </history-entry>
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -294,14 +310,14 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
+    <frame x="-4" y="-4" width="1448" height="868" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4904051" visible="true" weight="0.1205074" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4904051" visible="true" weight="0.11142454" />
       <window_info id="Structure" order="1" sideWeight="0.50959486" side_tool="true" weight="0.120592386" />
       <window_info id="Favorites" order="2" sideWeight="0.50808626" side_tool="true" weight="0.120592386" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.28893906" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.04043127" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -319,21 +335,21 @@
     <entry file="file://$PROJECT_DIR$/ii.py" />
     <entry file="file://$PROJECT_DIR$/test.py" />
     <entry file="file://$PROJECT_DIR$/ee.py" />
+    <entry file="file://$PROJECT_DIR$/client/clientPage.py" />
+    <entry file="file://$PROJECT_DIR$/login.py" />
     <entry file="file://$PROJECT_DIR$/Login/gyyLogin.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/clientPage.py" />
-    <entry file="file://$PROJECT_DIR$/login.py" />
     <entry file="file://$PROJECT_DIR$/Login/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/Login/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="767">
+        <state relative-caret-position="415">
           <caret line="46" column="21" selection-start-line="46" selection-start-column="21" selection-end-line="46" selection-end-column="21" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
@@ -343,8 +359,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="83" column="53" selection-start-line="83" selection-start-column="53" selection-end-line="83" selection-end-column="53" />
+        <state relative-caret-position="301">
+          <caret line="116" column="12" lean-forward="true" selection-start-line="116" selection-start-column="12" selection-end-line="116" selection-end-column="12" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
           </folding>
