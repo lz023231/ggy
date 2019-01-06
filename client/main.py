@@ -97,41 +97,64 @@ class ClientTest(unittest.TestCase):
         #加用户
     def test_3_addUserS(self):
         self.clickUser()
+        num = self.driver.find_element_by_xpath("//table/*/tr[5]/td[5]/div[@class='tdhidden']").get_attribute("title")
+        num = int(num)
+        print(num)
         self.selectHost()
+        time.sleep(1)
         self.addUser()
         time.sleep(1)
         self.driver.find_element_by_xpath("//input[@value='确认']").click()
+        time.sleep(1)
         try:
             self.driver.find_element_by_xpath("//div[contains(text(),'请设置正确的登陆用户数')]").is_displayed()
         except:
-            print('没有出现提示')
+            print('没有出现提示:请设置正确的登录用户数（添加数为0）')
         else:
-            print('出现提示')
+            print('出现提示：请设置正确的登录用户数（添加数为0）')
         time.sleep(1)
         self.driver.find_element_by_xpath("//input[@value='取消']").click()
+        time.sleep(1)
         self.addUser()
+        time.sleep(1)
         self.driver.find_element_by_name('maxonlinenum').clear()
+        time.sleep(1)
         self.driver.find_element_by_name('maxonlinenum').send_keys(1)
+        time.sleep(1)
         self.driver.find_element_by_xpath("//input[@value='确认']").click()
         time.sleep(3)
         try:
             self.driver.find_element_by_xpath("//div[contains(text(),'此次操作扣费')]").is_displayed()
         except:
-            print('没有出现提示')
+            print('没有出现提示：此次操作扣费（添加数为1）')
         else:
-            print('出现提示')
+            print('出现提示：添加数为1')
         self.driver.find_element_by_xpath("//input[@value='取消']"). click()
+        time.sleep(2)
         self.addUser()
+        time.sleep(1)
         self.driver.find_element_by_name('maxonlinenum').clear()
+        time.sleep(1)
         self.driver.find_element_by_name('maxonlinenum').send_keys(1)
+        time.sleep(1)
+        self.driver.find_element_by_xpath("//input[@value='确认']").click()
+        time.sleep(1)
         try:
             self.driver.find_element_by_xpath("//div[contains(text(),'此次操作扣费')]").is_displayed()
         except:
-            print('没有出现提示')
+            print('没有出现提示：此次操作扣费（添加数为1）')
         else:
-            print('出现提示')
+            print('出现提示：此次操作扣费（添加数为1）')
         time.sleep(3)
-
+        self.driver.find_element_by_xpath("//input[@value='确定']").click()
+        time.sleep(3)
+        num2 = self.driver.find_element_by_xpath("//table/*/tr[5]/td[5]/div[@class='tdhidden']").get_attribute("title")
+        num2 = int(num2)
+        print(num2)
+        if num + 1 == num2:
+            print('添加用户成功')
+        else:
+            print('添加用户失败')
     def tearDown(self):
         time.sleep(1)
         self.driver.quit()
