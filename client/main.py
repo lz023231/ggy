@@ -42,6 +42,12 @@ class ClientTest(unittest.TestCase):
         except:
             print('跳转到客户界面出错')
     def selectHost(self):
+        while True:
+            e = self.driver.find_element_by_xpath("//table/*/tr/td/div/input[@value='12879']").is_displayed()
+            if e == False:
+                self.driver.find_element_by_xpath("//a[contains(text(),'下一页')]").click()
+            else:
+                break
         t = self.driver.find_element_by_xpath("//table/*/tr/td/div/input[@value='12879']").is_selected()
         print(t)
         while t == False:
@@ -146,7 +152,7 @@ class ClientTest(unittest.TestCase):
         else:
             print('出现提示：此次操作扣费（添加数为1）')
         time.sleep(3)
-        self.driver.find_element_by_xpath("//input[@value='确定']").click()
+        #self.driver.find_element_by_xpath("//input[@value='确定']").click()
         time.sleep(3)
         num2 = self.driver.find_element_by_xpath("//table/*/tr[5]/td[5]/div[@class='tdhidden']").get_attribute("title")
         num2 = int(num2)
