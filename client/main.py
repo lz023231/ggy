@@ -1,4 +1,5 @@
 from client.clientPage import *
+import datetime
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
@@ -173,11 +174,7 @@ class ClientTest(unittest.TestCase):
         self.clickUser()
         time.sleep(1)
         date = self.driver.find_element_by_xpath("//table/*/tr[5]/td[9]/div[@class='tdhidden']").get_attribute("title")
-        print(date)
-        d = "'" + date + "'"
-        print(d)
-        s =  d.split('-')
-        print(s[1])
+        d1 = datetime.datetime.strptime(date,'%Y-%m-%d')
         self.selectHost()
         time.sleep(1)
         self.addTime()
@@ -209,7 +206,15 @@ class ClientTest(unittest.TestCase):
             print("没有出现提示：此次操作扣费（增加一个月时）")
         else:
             print("出现提示：此次操作扣费（增加一个月时）")
-
+        self.driver.find_element_by_xpath("//input[@value='确定']").click()
+        time.sleep(3)
+        date2 = self.driver.find_element_by_xpath("//table/*/tr[5]/td[9]/div[@class='tdhidden']").get_attribute("title")
+        d3 = datetime.datetime.strptime(date2, '%Y-%m-%d')
+        m = round((d3 - d1).days/30)
+        if  m == 1:
+            print("增加时间成功")
+        else:
+            print("增加时间失败")
     def tearDown(self):
         time.sleep(1)
         self.driver.quit()
