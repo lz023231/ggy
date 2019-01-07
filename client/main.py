@@ -4,6 +4,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import *
 from selenium.common.exceptions import TimeoutException
+from selenium.webdriver.support.ui import Select
 import time
 import unittest
 from selenium import webdriver
@@ -70,6 +71,13 @@ class ClientTest(unittest.TestCase):
         else:
             print('主机已经选上')
     '''
+    def addTime(self):
+        try:
+            #self.driver.find_element_by_xpath("//a[contains(text(),'加时间')]").click()
+            element = WebDriverWait(self.driver,10,1).until(EC.element_to_be_clickable((By.XPATH,"//a[contains(text(),'加时间')]")))
+            element.click()
+        except:
+            print('添加时间出错')
     def test_1_client(self):
         #path1='//a[contains(text(),"客户")]'
         #self.driver.find_element_by_xpath('//a[contains(text(),"客户")]').click()
@@ -161,6 +169,47 @@ class ClientTest(unittest.TestCase):
             print('添加用户成功')
         else:
             print('添加用户失败')
+    def test_4_addTime(self):
+        self.clickUser()
+        time.sleep(1)
+        date = self.driver.find_element_by_xpath("//table/*/tr[5]/td[9]/div[@class='tdhidden']").get_attribute("title")
+        print(date)
+        d = "'" + date + "'"
+        print(d)
+        s =  d.split('-')
+        print(s[1])
+        self.selectHost()
+        time.sleep(1)
+        self.addTime()
+        time.sleep(1)
+        self.driver.find_element_by_xpath("//input[@value='取消']").click()
+        time.sleep(1)
+        self.addTime()
+        time.sleep(1)
+        self.driver.find_element_by_xpath("//input[@value='确认']").click()
+        time.sleep(3)
+        try:
+            self.driver.find_element_by_xpath("//div[contains(text(),'结束日期不合法,无法计算增加的时间')]").is_displayed()
+        except:
+            print('没有出现提示：增加x个月')
+        else:
+            print('出现提示：增加x个月')
+        self.driver.find_element_by_id("FastSelect").click()
+        time.sleep(2)
+        try:
+            s = Select(self.driver.find_element_by_id("FastSelect"))
+            s.select_by_value("1")
+            time.sleep(3)
+        except:
+            print("没有出现下拉框")
+        self.driver.find_element_by_xpath("//input[@value='确定']").click()
+        try:
+            self.driver.find_element_by_xpath("//div[contains(text(),'此次操作扣费')]").is_displayed()
+        except:
+            print("没有出现提示：此次操作扣费（增加一个月时）")
+        else:
+            print("出现提示：此次操作扣费（增加一个月时）")
+
     def tearDown(self):
         time.sleep(1)
         self.driver.quit()
