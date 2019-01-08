@@ -79,6 +79,12 @@ class ClientTest(unittest.TestCase):
             element.click()
         except:
             print('添加时间出错')
+    def editUser(self):
+        try:
+            element = WebDriverWait(self.driver,10,1).until(EC.element_to_be_clickable((By.XPATH,"//a[cintains(text(),'编辑')]")))
+            element.click()
+        except:
+            print("点击编辑按钮出错")
     def test_1_client(self):
         #path1='//a[contains(text(),"客户")]'
         #self.driver.find_element_by_xpath('//a[contains(text(),"客户")]').click()
@@ -215,6 +221,16 @@ class ClientTest(unittest.TestCase):
             print("增加时间成功")
         else:
             print("增加时间失败")
+    def test_5_editUser(self):
+        self.clickUser()
+        time.sleep(1)
+        self.selectHost()
+        time.sleep(1)
+        self.editUser()
+        time.sleep(1)
+
+
+
     def tearDown(self):
         time.sleep(1)
         self.driver.quit()
