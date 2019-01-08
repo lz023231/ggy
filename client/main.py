@@ -81,7 +81,7 @@ class ClientTest(unittest.TestCase):
             print('添加时间出错')
     def editUser(self):
         try:
-            element = WebDriverWait(self.driver,10,1).until(EC.element_to_be_clickable((By.XPATH,"//a[cintains(text(),'编辑')]")))
+            element = WebDriverWait(self.driver,10,1).until(EC.element_to_be_clickable((By.XPATH,"//a[contains(text(),'编辑')]")))
             element.click()
         except:
             print("点击编辑按钮出错")
@@ -228,6 +228,43 @@ class ClientTest(unittest.TestCase):
         time.sleep(1)
         self.editUser()
         time.sleep(1)
+        try:
+            self.driver.find_element_by_xpath("//input[@value='testzzl01.yun.gnway.com']").is_displayed()
+            self.driver.find_element_by_xpath("//input[@value='ceshi']").is_displayed()
+            self.driver.find_element_by_xpath("//input[@value='testzzl01']").is_displayed()
+        except:
+            print('没有出现编辑界面')
+        self.driver.find_element_by_xpath("//input[@value='取消']").click()
+        time.sleep(2)
+        self.editUser()
+        time.sleep(1)
+        try:
+            self.driver.find_element_by_xpath("//input[@value='testzzl01.yun.gnway.com']").is_displayed()
+            self.driver.find_element_by_xpath("//input[@value='ceshi']").is_displayed()
+            self.driver.find_element_by_xpath("//input[@value='testzzl01']").is_displayed()
+        except:
+            print("没有出现编辑界面（第二次）")
+        self.driver.find_element_by_xpath("//input[@value='testzzl01.yun.gnway.com']").send_keys('p')
+        time.sleep(2)
+        self.driver.find_element_by_xpath("//input[@value='testzzl01.yun.gnway.com']").click()
+        time.sleep(2)
+        try:
+            t = self.driver.find_element_by_id("domainauto-error").text
+            if t == "请检查该域名是否拼写错误testzzl01.yun.gnway.comp":
+                print("出现提示：请检查该域名是否拼写错误testzzl01.yun.gnway.comp")
+            else:
+                return
+        except:
+            print("没有出现提示：请检查该域名是否拼写错误testzzl01.yun.gnway.comp")
+        self.driver.find_element_by_xpath("//input[@value='testzzl01.yun.gnway.com']").send_keys(Keys.BACK_SPACE)
+        time.sleep(1)
+        self.driver.find_element_by_xpath("//input[@value='ceshi']").send_keys("01")
+        time.sleep(2)
+        self.driver.find_element_by_xpath("//input[@value='确认']").click()
+        time.sleep(3)
+        self.driver.refresh()
+        time.sleep(2)
+        self.driver.find_element_by_xpath("//table/*/tr[9]/td[4]/div[@class='tdhidden']")
 
 
 
