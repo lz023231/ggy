@@ -308,14 +308,34 @@ class ClientTest(unittest.TestCase):
         while True:
             try:
                 result = self.driver.find_element_by_xpath("//a[contains(text(),'减用户')]").is_displayed()
-                if result == False:
-                    print("没有出现二级菜单")
+                if result == True:
+                    print("出现二级菜单")
+                    self.driver.find_element_by_xpath("//a[contains(text(),'减用户')]").click()
+                    time.sleep(2)
+                    res =  self.driver.find_element_by_xpath("//input[@placeholder='减少用户数']").is_displayed()
+                    if res == True:
+                        self.driver.find_element_by_xpath("//input[@value='取消']").click()
+                        time.sleep(2)
+                    else:
+                        return
+                    self.reduceUser()
+                    time.sleep(2)
+                    self.driver.find_element_by_xpath("//a[contains(text(),'减用户')]").click()
+                    time.sleep(2)
+                    self.driver.find_element_by_xpath("//input[@value='确认']").click()
+                    time.sleep(2)
+                    try:
+                        self.driver.find_element_by_xpath("//div[contains(text(),'减少的人数不能为0或者负数!')]").is_displayed()
+                    except:
+                        print("减用户数为0是没有出现提示")
+
+
                     break
                 else:
                     return
             except:
                 return
-            self
+
 
     def tearDown(self):
         time.sleep(1)
