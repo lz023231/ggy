@@ -9,6 +9,9 @@ from selenium.webdriver.support.ui import Select
 import time
 import unittest
 from selenium import webdriver
+'''
+修改管理员密码的功能计划和管理员登录一起
+'''
 class ClientTest(unittest.TestCase):
     def setUp(self):
         self.driver = webdriver.Chrome()
@@ -85,63 +88,69 @@ class ClientTest(unittest.TestCase):
             element.click()
         except:
             print("点击编辑按钮出错")
+    def reduceUser(self):
+        try:
+            element = WebDriverWait(self.driver,10,1).until(EC.element_to_be_clickable((By.XPATH,"//a[contains(text(),'更多')]")))
+            element.click()
+        except:
+            print("点击更多按钮出错")
     def test_1_client(self):
         #path1='//a[contains(text(),"客户")]'
         #self.driver.find_element_by_xpath('//a[contains(text(),"客户")]').click()
         self.clickUser()
-        time.sleep(1)
+        time.sleep(2)
     def test_2_showClient(self):
         #path = '//a[contains(text(),"显示更多")]'
         self.driver.find_element_by_xpath("//a[contains(text(),'添加客户')]/following-sibling::a[contains(text(),'显示更多')]").click()
-        time.sleep(1)
+        time.sleep(2)
         #发布应用
         #self.driver.find_element_by_xpath("//table/*/tr/td/div/input[@value='12879']").click()
         self.selectHost()
-        time.sleep(1)
+        time.sleep(2)
         self.pubApp()
         #self.driver.find_element_by_xpath("//a[contains(text(),'发布应用')]").click()
         self.driver.find_element_by_xpath("//label[contains(text(),'cmd')]").click()
-        time.sleep(1)
+        time.sleep(2)
         self.driver.find_element_by_xpath("//input[@value='取消']").click()
-        time.sleep(1)
+        time.sleep(2)
         self.pubApp()
         self.driver.find_element_by_xpath("//label[contains(text(),'cmd')]").click()
         #self.driver.find_element_by_xpath("//a")
         self.driver.find_element_by_xpath("//input[@value='确定']").click()
-        time.sleep(1)
+        time.sleep(2)
         self.driver.find_element_by_xpath("//table/*/tr/td/div/input[@value='12879']").click()
-        time.sleep(1)
+        time.sleep(2)
         self.pubApp()
-        time.sleep(1)
+        time.sleep(2)
         #self.driver.find_element_by_xpath("//input[@value='取消']").cleck()
 
         #加用户
     def test_3_addUserS(self):
         self.clickUser()
-        num = self.driver.find_element_by_xpath("//table/*/tr[5]/td[5]/div[@class='tdhidden']").get_attribute("title")
+        self.selectHost()
+        num = self.driver.find_element_by_xpath("//table/*/tr/td/div/input[@value='12879']/../../following-sibling::td[4]/div[@class='tdhidden']").get_attribute("title")
         num = int(num)
         print(num)
-        self.selectHost()
-        time.sleep(1)
+        time.sleep(2)
         self.addUser()
-        time.sleep(1)
+        time.sleep(2)
         self.driver.find_element_by_xpath("//input[@value='确认']").click()
-        time.sleep(1)
+        time.sleep(2)
         try:
             self.driver.find_element_by_xpath("//div[contains(text(),'请设置正确的登陆用户数')]").is_displayed()
         except:
             print('没有出现提示:请设置正确的登录用户数（添加数为0）')
         else:
             print('出现提示：请设置正确的登录用户数（添加数为0）')
-        time.sleep(1)
+        time.sleep(2)
         self.driver.find_element_by_xpath("//input[@value='取消']").click()
-        time.sleep(1)
+        time.sleep(2)
         self.addUser()
-        time.sleep(1)
+        time.sleep(2)
         self.driver.find_element_by_name('maxonlinenum').clear()
-        time.sleep(1)
+        time.sleep(2)
         self.driver.find_element_by_name('maxonlinenum').send_keys(1)
-        time.sleep(1)
+        time.sleep(2)
         self.driver.find_element_by_xpath("//input[@value='确认']").click()
         time.sleep(3)
         try:
@@ -153,13 +162,13 @@ class ClientTest(unittest.TestCase):
         self.driver.find_element_by_xpath("//input[@value='取消']"). click()
         time.sleep(2)
         self.addUser()
-        time.sleep(1)
+        time.sleep(2)
         self.driver.find_element_by_name('maxonlinenum').clear()
-        time.sleep(1)
+        time.sleep(2)
         self.driver.find_element_by_name('maxonlinenum').send_keys(1)
-        time.sleep(1)
+        time.sleep(2)
         self.driver.find_element_by_xpath("//input[@value='确认']").click()
-        time.sleep(1)
+        time.sleep(2)
         try:
             self.driver.find_element_by_xpath("//div[contains(text(),'此次操作扣费')]").is_displayed()
         except:
@@ -169,7 +178,7 @@ class ClientTest(unittest.TestCase):
         time.sleep(3)
         #self.driver.find_element_by_xpath("//input[@value='确定']").click()
         time.sleep(3)
-        num2 = self.driver.find_element_by_xpath("//table/*/tr[5]/td[5]/div[@class='tdhidden']").get_attribute("title")
+        num2 = self.driver.find_element_by_xpath("//table/*/tr/td/div/input[@value='12879']/../../following-sibling::td[4]/div[@class='tdhidden']").get_attribute("title")
         num2 = int(num2)
         print(num2)
         if num + 1 == num2:
@@ -178,17 +187,17 @@ class ClientTest(unittest.TestCase):
             print('添加用户失败')
     def test_4_addTime(self):
         self.clickUser()
-        time.sleep(1)
-        date = self.driver.find_element_by_xpath("//table/*/tr[5]/td[9]/div[@class='tdhidden']").get_attribute("title")
-        d1 = datetime.datetime.strptime(date,'%Y-%m-%d')
+        time.sleep(2)
         self.selectHost()
-        time.sleep(1)
+        date = self.driver.find_element_by_xpath("//table/*/tr/td/div/input[@value='12879']/../../following-sibling::td[8]/div[@class='tdhidden']").get_attribute("title")
+        d1 = datetime.datetime.strptime(date,'%Y-%m-%d')
+        time.sleep(2)
         self.addTime()
-        time.sleep(1)
+        time.sleep(2)
         self.driver.find_element_by_xpath("//input[@value='取消']").click()
-        time.sleep(1)
+        time.sleep(2)
         self.addTime()
-        time.sleep(1)
+        time.sleep(2)
         self.driver.find_element_by_xpath("//input[@value='确认']").click()
         time.sleep(3)
         try:
@@ -214,7 +223,7 @@ class ClientTest(unittest.TestCase):
             print("出现提示：此次操作扣费（增加一个月时）")
         self.driver.find_element_by_xpath("//input[@value='确定']").click()
         time.sleep(3)
-        date2 = self.driver.find_element_by_xpath("//table/*/tr[5]/td[9]/div[@class='tdhidden']").get_attribute("title")
+        date2 = self.driver.find_element_by_xpath("//table/*/tr/td/div/input[@value='12879']/../../following-sibling::td[8]/div[@class='tdhidden']").get_attribute("title")
         d3 = datetime.datetime.strptime(date2, '%Y-%m-%d')
         m = round((d3 - d1).days/30)
         if  m == 1:
@@ -223,33 +232,34 @@ class ClientTest(unittest.TestCase):
             print("增加时间失败")
     def test_5_editUser(self):
         self.clickUser()
-        time.sleep(1)
+        time.sleep(2)
         self.selectHost()
-        time.sleep(1)
+        time.sleep(2)
         self.editUser()
-        time.sleep(1)
+        time.sleep(2)
         try:
             self.driver.find_element_by_xpath("//input[@value='testzzl01.yun.gnway.com']").is_displayed()
-            self.driver.find_element_by_xpath("//input[@value='ceshi']").is_displayed()
+            self.driver.find_element_by_xpath("//input[@placeholder='设置用户公司名称']").is_displayed()
             self.driver.find_element_by_xpath("//input[@value='testzzl01']").is_displayed()
         except:
             print('没有出现编辑界面')
         self.driver.find_element_by_xpath("//input[@value='取消']").click()
         time.sleep(2)
         self.editUser()
-        time.sleep(1)
+        time.sleep(2)
         try:
             self.driver.find_element_by_xpath("//input[@value='testzzl01.yun.gnway.com']").is_displayed()
-            self.driver.find_element_by_xpath("//input[@value='ceshi']").is_displayed()
+            self.driver.find_element_by_xpath("//input[@placeholder='设置用户公司名称']").is_displayed()
             self.driver.find_element_by_xpath("//input[@value='testzzl01']").is_displayed()
         except:
             print("没有出现编辑界面（第二次）")
         self.driver.find_element_by_xpath("//input[@value='testzzl01.yun.gnway.com']").send_keys('p')
         time.sleep(2)
-        self.driver.find_element_by_xpath("//input[@value='testzzl01.yun.gnway.com']").click()
+        self.driver.find_element_by_xpath("//input[@placeholder='设置用户公司名称']").click()
         time.sleep(2)
         try:
             t = self.driver.find_element_by_id("domainauto-error").text
+            print(t)
             if t == "请检查该域名是否拼写错误testzzl01.yun.gnway.comp":
                 print("出现提示：请检查该域名是否拼写错误testzzl01.yun.gnway.comp")
             else:
@@ -257,16 +267,55 @@ class ClientTest(unittest.TestCase):
         except:
             print("没有出现提示：请检查该域名是否拼写错误testzzl01.yun.gnway.comp")
         self.driver.find_element_by_xpath("//input[@value='testzzl01.yun.gnway.com']").send_keys(Keys.BACK_SPACE)
-        time.sleep(1)
-        self.driver.find_element_by_xpath("//input[@value='ceshi']").send_keys("01")
+        time.sleep(2)
+        try:
+            self.driver.find_element_by_xpath("//input[@placeholder='设置用户公司名称']").send_keys("01")
+            time.sleep(2)
+            self.driver.find_element_by_xpath("//input[@value='确认']").click()
+            time.sleep(3)
+            self.driver.refresh()
+            time.sleep(2)
+            #根据父元素的兄弟元素定位
+            text = self.driver.find_element_by_xpath(
+            "//table/*/tr/td/div/input[@value='12879']/../../following-sibling::td[8]/div[@class='tdhidden']").get_attribute(
+            "title")
+            time.sleep(2)
+            if text == "ceshi01":
+                return
+        except:
+            print("修改公司名称失败")
+        self.selectHost()
+        time.sleep(2)
+        self.editUser()
+        time.sleep(2)
+        ch = self.driver.find_element_by_xpath("//input[@name='username']").is_enabled()
+        if ch == True:
+            print("error:管理员账户可以修改")
+        else:
+            print("管理员账户为不可修改状态")
+        self.driver.find_element_by_xpath("//input[@placeholder='设置用户公司名称']").clear()
+        time.sleep(2)
+        self.driver.find_element_by_xpath("//input[@placeholder='设置用户公司名称']").send_keys("ceshi")
         time.sleep(2)
         self.driver.find_element_by_xpath("//input[@value='确认']").click()
-        time.sleep(3)
-        self.driver.refresh()
         time.sleep(2)
-        self.driver.find_element_by_xpath("//table/*/tr[9]/td[4]/div[@class='tdhidden']")
-
-
+        self.driver.refresh()
+    def test_6_reduceUser(self):
+        self.selectHost()
+        time.sleep(2)
+        self.reduceUser()
+        time.sleep(2)
+        while True:
+            try:
+                result = self.driver.find_element_by_xpath("//a[contains(text(),'减用户')]").is_displayed()
+                if result == False:
+                    print("没有出现二级菜单")
+                    break
+                else:
+                    return
+            except:
+                return
+            self
 
     def tearDown(self):
         time.sleep(1)
