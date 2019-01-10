@@ -94,6 +94,12 @@ class ClientTest(unittest.TestCase):
             element.click()
         except:
             print("点击更多按钮出错")
+    def details(self):
+        try:
+            element = WebDriverWait(self.driver,10,1).until(EC.element_to_be_clickable((By.XPATH,"//a[contains(text(),'详情')]")))
+            element.click()
+        except:
+            print("点击详情按钮出错")
     def test_1_client(self):
         #path1='//a[contains(text(),"客户")]'
         #self.driver.find_element_by_xpath('//a[contains(text(),"客户")]').click()
@@ -231,6 +237,7 @@ class ClientTest(unittest.TestCase):
         else:
             print("增加时间失败")
     def test_5_editUser(self):
+        global i
         self.clickUser()
         time.sleep(2)
         self.selectHost()
@@ -300,41 +307,94 @@ class ClientTest(unittest.TestCase):
         self.driver.find_element_by_xpath("//input[@value='确认']").click()
         time.sleep(2)
         self.driver.refresh()
-    def test_6_reduceUser(self):
+        time.sleep(2)
         self.selectHost()
         time.sleep(2)
-        self.reduceUser()
+        self.editUser()
         time.sleep(2)
         while True:
             try:
-                result = self.driver.find_element_by_xpath("//a[contains(text(),'减用户')]").is_displayed()
-                if result == True:
-                    print("出现二级菜单")
-                    self.driver.find_element_by_xpath("//a[contains(text(),'减用户')]").click()
-                    time.sleep(2)
-                    res =  self.driver.find_element_by_xpath("//input[@placeholder='减少用户数']").is_displayed()
-                    if res == True:
-                        self.driver.find_element_by_xpath("//input[@value='取消']").click()
-                        time.sleep(2)
-                    else:
-                        return
-                    self.reduceUser()
-                    time.sleep(2)
-                    self.driver.find_element_by_xpath("//a[contains(text(),'减用户')]").click()
-                    time.sleep(2)
-                    self.driver.find_element_by_xpath("//input[@value='确认']").click()
-                    time.sleep(2)
-                    try:
-                        self.driver.find_element_by_xpath("//div[contains(text(),'减少的人数不能为0或者负数!')]").is_displayed()
-                    except:
-                        print("减用户数为0是没有出现提示")
-
-
-                    break
-                else:
-                    return
+                self.driver.find_element_by_xpath("//input[@placeholder='备注']").clear()
+                time.sleep(1)
+                self.driver.find_element_by_xpath("//input[@placeholder='备注']").send_keys("test")
+                self.driver.find_element_by_xpath("//input[@placeholder='填写联系人']").clear()
+                time.sleep(1)
+                self.driver.find_element_by_xpath("//input[@placeholder='填写联系人']").send_keys("test")
+                time.sleep(2)
+                self.driver.find_element_by_xpath("//input[@value='确认']").click()
+                time.sleep(3)
+                i = 0
             except:
+                print("编辑备注失败")
+
+            if i == 0:
+                self.details()
+                note = self.driver.find_element_by_xpath("//td[contains(text(),'备注')]/following-sibling::td[1]").text
+                cont = self.driver.find_element_by_xpath("//td[contains(text(),'联系人')]/following-sibling::td[1]").text
+                if note == "test" and cont == "test":
+                    print("详情显示正确")
+                else:
+                    print("详情显示错误")
+            else:
+                print("编辑备注时失败")
+            break
+
+    def test_6_reduceUser(self):
+        self.selectHost()
+        time.sleep(2)
+        num = self.driver.find_element_by_xpath(
+            "//table/*/tr/td/div/input[@value='12879']/../../following-sibling::td[4]/div[@class='tdhidden']").get_attribute(
+            "title")
+        num = int(num)
+        print(num)
+        self.reduceUser()
+        time.sleep(2)
+        #while True:
+
+        result = self.driver.find_element_by_xpath("//a[contains(text(),'减用户')]").is_displayed()
+        if result == True:
+            print("出现二级菜单")
+            self.driver.find_element_by_xpath("//a[contains(text(),'减用户')]").click()
+            time.sleep(2)
+            res =  self.driver.find_element_by_xpath("//input[@placeholder='减少用户数']").is_displayed()
+            if res == True:
+                self.driver.find_element_by_xpath("//input[@value='取消']").click()
+                time.sleep(2)
+            else:
                 return
+            self.reduceUser()
+            time.sleep(2)
+            self.driver.find_element_by_xpath("//a[contains(text(),'减用户')]").click()
+            time.sleep(2)
+            self.driver.find_element_by_xpath("//input[@value='确认']").click()
+            time.sleep(2)
+            try:
+                self.driver.find_element_by_xpath("//div[contains(text(),'减少的人数不能为0或者负数!')]").is_displayed()
+            except:
+                print("减用户数为0是没有出现提示")
+            self.driver.find_element_by_xpath("//input[@placeholder='减少用户数']").clear()
+            time.sleep(2)
+            self.driver.find_element_by_xpath("//input[@placeholder='减少用户数']").send_keys("1")
+            time.sleep(2)
+            self.driver.find_element_by_xpath("//input[@value='确认']").click()
+            time.sleep(2)
+            try:
+                self.driver.find_element_by_xpath("//div[contains(text(),'请点击确认提交更改')]").is_displayed()
+            except:
+                print("没有出现提示（减掉一个用户时）")
+            self.driver.find_element_by_xpath("//input[@value='确定']").click()
+            time.sleep(3)
+            num2 = self.driver.find_element_by_xpath(
+            "//table/*/tr/td/div/input[@value='12879']/../../following-sibling::td[4]/div[@class='tdhidden']").get_attribute(
+            "title")
+            num2 = int(num2)
+            if num2 + 1 == num:
+                print("减用户成功")
+            else:
+                print("减用户失败")
+        else:
+            print("没有出现二级菜单")
+
 
 
     def tearDown(self):
