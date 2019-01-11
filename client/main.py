@@ -24,14 +24,18 @@ class ClientTest(unittest.TestCase):
         Login().login(self.driver, username, password)
         time.sleep(2)
     def pubApp(self):
-        try:
-            #检查发布应用按钮是否为可见并且是可点击的
-            #self.driver.find_element_by_xpath("//a[contains(text(),'发布应用')]").click()
-            element = WebDriverWait(self.driver,10,1).until(EC.element_to_be_clickable((By.ID,"btnIssueApp")))
-            #WebDriverWait(self.driver,10).until(lambda x: x)
-            element.click()
-        except:
-            print('发布应用出错')
+        t = self.driver.find_element_by_id("btnIssueApp").is_selected()
+        while t == False:
+            try:
+                #检查发布应用按钮是否为可见并且是可点击的
+                element = WebDriverWait(self.driver,10,1).until(EC.element_to_be_clickable((By.ID,"btnIssueApp")))
+                element.click()
+                time.sleep(2)
+                #if t == True:
+                    #return
+                break
+            except:
+                print('发布应用出错')
     def addUser(self):
         try:
             #self.driver.find_element_by_xpath("//a[contains(text(),'加用户')]").click()
@@ -46,11 +50,25 @@ class ClientTest(unittest.TestCase):
             #self.driver.find_element_by_xpath('//a[contains(text(),"客户")]').click()
         except:
             print('跳转到客户界面出错')
+    def findHost(self):
+        js1 = "document.documentElement.scrollTop=10000"
+        self.driver.execute_script(js1)
+
     def selectHost(self):
         while True:
-            e = self.driver.find_element_by_xpath("//table/*/tr/td/div/input[@value='12879']").is_displayed()
+            try:
+                e = self.driver.find_element_by_xpath("//table/*/tr/td/div/input[@value='12879']").is_displayed()
+                print("1111")
+                print(e)
+            except:
+                e = False
+                print("2222")
+                print(e)
             if e == False:
-                self.driver.find_element_by_xpath("//a[contains(text(),'下一页')]").click()
+                self.findHost()
+                time.sleep(2)
+                self.driver.find_element_by_xpath("//a[contains(text(),'后一页')]").click()
+
             else:
                 break
         t = self.driver.find_element_by_xpath("//table/*/tr/td/div/input[@value='12879']").is_selected()
@@ -114,20 +132,49 @@ class ClientTest(unittest.TestCase):
         self.selectHost()
         time.sleep(2)
         self.pubApp()
+        time.sleep(2)
         #self.driver.find_element_by_xpath("//a[contains(text(),'发布应用')]").click()
+        t = self.driver.find_element_by_xpath("//input[@value='4']").is_selected()
+        print("ew")
+        print(t)
+        while t == True:
+            try:
+                print("--------")
+                element = WebDriverWait(self.driver,10,1).until(EC.element_to_be_clickable((By.XPATH,"//label[contains(text(),'cmd')]")))
+                element.click()
+                time.sleep(2)
+                self.driver.find_element_by_xpath("//input[@value='确定']").click()
+                time.sleep(3)
+                self.selectHost()
+                time.sleep(2)
+                self.pubApp()
+                time.sleep(2)
+                print("------")
+                break
+            except:
+                print("应用为未点击状态")
         self.driver.find_element_by_xpath("//label[contains(text(),'cmd')]").click()
         time.sleep(2)
         self.driver.find_element_by_xpath("//input[@value='取消']").click()
         time.sleep(2)
         self.pubApp()
         self.driver.find_element_by_xpath("//label[contains(text(),'cmd')]").click()
+        time.sleep(2)
         #self.driver.find_element_by_xpath("//a")
         self.driver.find_element_by_xpath("//input[@value='确定']").click()
         time.sleep(2)
-        self.driver.find_element_by_xpath("//table/*/tr/td/div/input[@value='12879']").click()
+        #self.driver.find_element_by_xpath("//table/*/tr/td/div/input[@value='12879']").click()
+        self.selectHost()
         time.sleep(2)
         self.pubApp()
         time.sleep(2)
+        e = self.driver.find_element_by_xpath("//input[@value='4']").is_selected()
+        print("---")
+        print(e)
+        if e == False:
+            print("发布应用失败")
+        else:
+            print("发布应用成功")
         #self.driver.find_element_by_xpath("//input[@value='取消']").cleck()
 
         #加用户
