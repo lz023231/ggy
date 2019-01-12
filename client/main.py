@@ -124,6 +124,7 @@ class ClientTest(unittest.TestCase):
         self.clickUser()
         time.sleep(2)
     def test_2_showClient(self):
+        print('---------------------------发布应用------------------------------')
         #path = '//a[contains(text(),"显示更多")]'
         self.driver.find_element_by_xpath("//a[contains(text(),'添加客户')]/following-sibling::a[contains(text(),'显示更多')]").click()
         time.sleep(2)
@@ -179,6 +180,7 @@ class ClientTest(unittest.TestCase):
 
         #加用户
     def test_3_addUserS(self):
+        print('---------------------------添加用户------------------------------')
         self.clickUser()
         self.selectHost()
         num = self.driver.find_element_by_xpath("//table/*/tr/td/div/input[@value='12879']/../../following-sibling::td[4]/div[@class='tdhidden']").get_attribute("title")
@@ -229,7 +231,7 @@ class ClientTest(unittest.TestCase):
         else:
             print('出现提示：此次操作扣费（添加数为1）')
         time.sleep(3)
-        #self.driver.find_element_by_xpath("//input[@value='确定']").click()
+        self.driver.find_element_by_xpath("//input[@value='确定']").click()
         time.sleep(3)
         num2 = self.driver.find_element_by_xpath("//table/*/tr/td/div/input[@value='12879']/../../following-sibling::td[4]/div[@class='tdhidden']").get_attribute("title")
         num2 = int(num2)
@@ -239,6 +241,7 @@ class ClientTest(unittest.TestCase):
         else:
             print('添加用户失败')
     def test_4_addTime(self):
+        print("---------------------------增加时间------------------------------")
         self.clickUser()
         time.sleep(2)
         self.selectHost()
@@ -284,6 +287,7 @@ class ClientTest(unittest.TestCase):
         else:
             print("增加时间失败")
     def test_5_editUser(self):
+        print('---------------------------编辑用户和对比详情------------------------------')
         global i
         self.clickUser()
         time.sleep(2)
@@ -323,6 +327,9 @@ class ClientTest(unittest.TestCase):
         self.driver.find_element_by_xpath("//input[@value='testzzl01.yun.gnway.com']").send_keys(Keys.BACK_SPACE)
         time.sleep(2)
         try:
+            text1 = text2 = self.driver.find_element_by_xpath(
+            "//table/*/tr/td/div/input[@value='12879']/../../following-sibling::td[8]/div[@class='tdhidden']").get_attribute(
+            "title")
             self.driver.find_element_by_xpath("//input[@placeholder='设置用户公司名称']").send_keys("01")
             time.sleep(2)
             self.driver.find_element_by_xpath("//input[@value='确认']").click()
@@ -330,11 +337,11 @@ class ClientTest(unittest.TestCase):
             self.driver.refresh()
             time.sleep(2)
             #根据父元素的兄弟元素定位
-            text = self.driver.find_element_by_xpath(
+            text2 = self.driver.find_element_by_xpath(
             "//table/*/tr/td/div/input[@value='12879']/../../following-sibling::td[8]/div[@class='tdhidden']").get_attribute(
             "title")
             time.sleep(2)
-            if text == "ceshi01":
+            if text2 == text1 + '01':
                 return
         except:
             print("修改公司名称失败")
@@ -387,6 +394,7 @@ class ClientTest(unittest.TestCase):
             break
 
     def test_6_reduceUser(self):
+        print("--------------------------------减用户-----------------------------------")
         self.selectHost()
         time.sleep(2)
         num = self.driver.find_element_by_xpath(
