@@ -116,6 +116,7 @@ class ClientTest(unittest.TestCase):
         try:
             element = WebDriverWait(self.driver,10,1).until(EC.element_to_be_clickable((By.XPATH,"//a[contains(text(),'详情')]")))
             element.click()
+            time.sleep(2)
         except:
             print("点击详情按钮出错")
     def test_1_client(self):
@@ -395,13 +396,17 @@ class ClientTest(unittest.TestCase):
 
     def test_6_reduceUser(self):
         print("--------------------------------减用户-----------------------------------")
+        self.clickUser()
+        time.sleep(2)
         self.selectHost()
         time.sleep(2)
         num = self.driver.find_element_by_xpath(
             "//table/*/tr/td/div/input[@value='12879']/../../following-sibling::td[4]/div[@class='tdhidden']").get_attribute(
             "title")
+        print('---')
         num = int(num)
         print(num)
+        print('----')
         self.reduceUser()
         time.sleep(2)
         #while True:
@@ -427,6 +432,16 @@ class ClientTest(unittest.TestCase):
                 self.driver.find_element_by_xpath("//div[contains(text(),'减少的人数不能为0或者负数!')]").is_displayed()
             except:
                 print("减用户数为0是没有出现提示")
+
+
+
+            self.driver.find_element_by_xpath("//input[@value='取消']").click()
+            time.sleep(2)
+            self.reduceUser()
+            time.sleep(2)
+            self.driver.find_element_by_xpath("//a[contains(text(),'减用户')]").click()
+            time.sleep(2)
+
             self.driver.find_element_by_xpath("//input[@placeholder='减少用户数']").clear()
             time.sleep(2)
             self.driver.find_element_by_xpath("//input[@placeholder='减少用户数']").send_keys("1")
@@ -439,6 +454,8 @@ class ClientTest(unittest.TestCase):
                 print("没有出现提示（减掉一个用户时）")
             self.driver.find_element_by_xpath("//input[@value='确定']").click()
             time.sleep(3)
+            self.driver.refresh()
+            time.sleep(2)
             num2 = self.driver.find_element_by_xpath(
             "//table/*/tr/td/div/input[@value='12879']/../../following-sibling::td[4]/div[@class='tdhidden']").get_attribute(
             "title")
