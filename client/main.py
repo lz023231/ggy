@@ -58,11 +58,11 @@ class ClientTest(unittest.TestCase):
         while True:
             try:
                 e = self.driver.find_element_by_xpath("//table/*/tr/td/div/input[@value='12879']").is_displayed()
-                print("1111")
+                #print("1111")
                 print(e)
             except:
                 e = False
-                print("2222")
+                #print("2222")
                 print(e)
             if e == False:
                 self.findHost()
@@ -183,6 +183,7 @@ class ClientTest(unittest.TestCase):
     def test_3_addUserS(self):
         print('---------------------------添加用户------------------------------')
         self.clickUser()
+        time.sleep(2)
         self.selectHost()
         num = self.driver.find_element_by_xpath("//table/*/tr/td/div/input[@value='12879']/../../following-sibling::td[4]/div[@class='tdhidden']").get_attribute("title")
         num = int(num)
@@ -449,10 +450,10 @@ class ClientTest(unittest.TestCase):
             self.driver.find_element_by_xpath("//input[@value='确认']").click()
             time.sleep(2)
             try:
-                self.driver.find_element_by_xpath("//div[contains(text(),'请点击确认提交更改')]").is_displayed()
+                self.driver.find_element_by_xpath("//div[@id='formerror']").is_displayed()
             except:
                 print("没有出现提示（减掉一个用户时）")
-            self.driver.find_element_by_xpath("//input[@value='确定']").click()
+            #self.driver.find_element_by_xpath("//input[@value='确定']").click()
             time.sleep(3)
             self.driver.refresh()
             time.sleep(2)
@@ -460,7 +461,7 @@ class ClientTest(unittest.TestCase):
             "//table/*/tr/td/div/input[@value='12879']/../../following-sibling::td[4]/div[@class='tdhidden']").get_attribute(
             "title")
             num2 = int(num2)
-            if num2 + 1 == num:
+            if num2 == num:
                 print("减用户成功")
             else:
                 print("减用户失败")
