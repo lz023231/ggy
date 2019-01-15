@@ -88,17 +88,39 @@ class ClientTest(unittest.TestCase):
             self.driver.find_element_by_xpath("//input[@value='确认']").is_displayed()
         except:
             print("没有出现增加客户的二级菜单")
+
+        self.driver.find_element_by_xpath("//input[@value='确认']").click()
+        try:
+            self.driver.find_element_by_xpath("//*[@id='domainauto-error']").is_displayed()
+        except:
+            print("增加用户时什么都不写，没有出现提示")
+
+        self.driver.find_element_by_xpath("//input[@placeholder='设置用户访问域名 例如:xxx.yun.gnway.com']").clear()
+        time.sleep(1)
         self.driver.find_element_by_xpath("//input[@placeholder='设置用户访问域名 例如:xxx.yun.gnway.com']").send_keys(h)
+        time.sleep(1)
+        self.driver.find_element_by_xpath("//input[@placeholder='设置用户公司名称']").clear()
         time.sleep(1)
         self.driver.find_element_by_xpath("//input[@placeholder='设置用户公司名称']").send_keys("gnway")
         time.sleep(1)
-        #self.driver.find_element_by_xpath("//input[@placeholder='设置登录云平台的管理账户']").send_keys(k)
+        self.driver.find_element_by_xpath("//input[@placeholder='设置登录云平台的管理账户']").clear()
+        time.sleep(1)
+        self.driver.find_element_by_xpath("//input[@placeholder='设置登录云平台的管理账户']").send_keys(k)
+        time.sleep(1)
+        self.driver.find_element_by_xpath("//input[@name='password']").clear()
         time.sleep(1)
         self.driver.find_element_by_xpath("//input[@name='password']").send_keys(k)
         time.sleep(1)
+        self.driver.find_element_by_name('contact').clear()
+        time.sleep(1)
         self.driver.find_element_by_name('contact').send_keys("gnwaytest")
         time.sleep(1)
+        self.driver.find_element_by_xpath("//input[@placeholder='备注']").clear()
+        time.sleep(1)
         self.driver.find_element_by_xpath("//input[@placeholder='备注']").send_keys(k)
+        time.sleep(1)
+        self.driver.find_element_by_xpath("//input[@value='确认']").click()
+        time.sleep(2)
 
 
 
