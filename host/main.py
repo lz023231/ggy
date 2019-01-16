@@ -71,18 +71,36 @@ class ClientTest(unittest.TestCase):
             print("没有找到增加客户按钮")
     #def findHost(self):
 
+    def userList(self):
+        try:
+            url = self.driver.current_url
+            element = WebDriverWait(self.driver,10,1).until(EC.element_to_be_clickable((By.XPATH,"//*[@id='btnListCustom']")))
+            element.click()
+            time.sleep(2)
+            new_url = self.driver.current_url
+            #e = WebDriverWait(self.driver,10,1).until(EC.ur)
+            if url == new_url:
+                print('进入客户列表失败')
+
+        except:
+            print("点击客户列表失败")
 
     def test_1_addCus(self):
         self.clickHost()
         time.sleep(2)
         self.selectHost()
         time.sleep(1)
+        #self.userList()
+        #time.sleep(2)
+
+
+
         self.addCustomer()
         time.sleep(2)
-        t = datetime.datetime.now().strftime('%Y-%m-%d')
+        t = datetime.datetime.now().strftime('%Y-%m-%d-%H-%M-%S')
         y = t.split("-")
-        k = '{}{}{}'.format('ceshi',y[1],y[2])
-        h = '{}{}{}{}'.format('ceshi',y[1],y[2],'.yun.gnway.com')
+        k = '{}{}{}{}{}'.format('ceshi',y[1],y[2],y[3],y[4])
+        h = '{}{}{}{}{}{}'.format('ceshi',y[1],y[2],y[3],y[4],'.yun.gnway.com')
         print(k)
         try:
             self.driver.find_element_by_xpath("//input[@value='确认']").is_displayed()
@@ -94,6 +112,10 @@ class ClientTest(unittest.TestCase):
             self.driver.find_element_by_xpath("//*[@id='domainauto-error']").is_displayed()
         except:
             print("增加用户时什么都不写，没有出现提示")
+        self.driver.find_element_by_xpath("//input[@value='取消']").click()
+        time.sleep(2)
+        self.addCustomer()
+        time.sleep(2)
 
         self.driver.find_element_by_xpath("//input[@placeholder='设置用户访问域名 例如:xxx.yun.gnway.com']").clear()
         time.sleep(1)
@@ -121,6 +143,21 @@ class ClientTest(unittest.TestCase):
         time.sleep(1)
         self.driver.find_element_by_xpath("//input[@value='确认']").click()
         time.sleep(2)
+        try:
+            q = self.driver.find_element_by_xpath("//input[@placeholder='设置登录云平台的管理账户']").is_displayed()
+            if q == True:
+                print("添加用户后，添加用户界面依然存在")
+        except:
+            return
+        self.userList()
+        time.sleep(2)
+        try:
+            #compo = WebDriverWait(self.driver,10,1).until(EC.text_to_be_present_in_element((By.XPATH,"//*[@id='customlist']/tbody/tr[1]/td[2]/div[@title='1']/../following-sibling::td[2]/div[@class='tdhidden']")))
+            comp = self.driver.find_element_by_xpath("//*[@id='customlist']/tbody/tr[1]/td[2]/div[@title='1']/../following-sibling::td[2]/div[@class='tdhidden']").text
+            if comp == "gnway":
+                print("添加客户成功")
+        except:
+            print("添加客户失败")
 
 
 
