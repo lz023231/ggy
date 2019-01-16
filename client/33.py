@@ -19,11 +19,14 @@ if x == t + "01":
     print('3')
 else:
     print('ksdhf')
-    '''
+    
 t = datetime.datetime.now().strftime('%Y-%m-%d')
 y = t.split('-')
 print(y)
 h = '{}{}{}'.format('ceshi',y[1],y[2])
 print(h)
 
+print(t)
+'''
+t = datetime.datetime.now().strftime('%Y-%m-%d-%H-%M-%S')
 print(t)
