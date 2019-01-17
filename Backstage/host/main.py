@@ -1,13 +1,10 @@
-from client.clientPage import *
 import datetime
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.common.exceptions import *
-from selenium.common.exceptions import TimeoutException
-from selenium.webdriver.support.ui import Select
 import time
 import unittest
+from Backstage.Login.gyyLogin import *
 from selenium import webdriver
 '''
 修改管理员密码的功能计划和管理员登录一起
@@ -84,6 +81,17 @@ class ClientTest(unittest.TestCase):
 
         except:
             print("点击客户列表失败")
+    def editHost(self):
+        try:
+            self.driver.find_element_by_xpath("//*[@id='btnEditHost']").is_displayed()
+            self.driver.find_element_by_xpath("//*[@id='btnEditHost']").click()
+            q = WebDriverWait(self.driver,10,1).until(EC.element_to_be_clickable((By.XPATH,'//input[@value="取消"]')))
+            if q == True:
+                return
+
+        except:
+            print('点击主机失败')
+
 
     def test_1_addCus(self):
         self.clickHost()
@@ -123,7 +131,7 @@ class ClientTest(unittest.TestCase):
         time.sleep(1)
         self.driver.find_element_by_xpath("//input[@placeholder='设置用户公司名称']").clear()
         time.sleep(1)
-        self.driver.find_element_by_xpath("//input[@placeholder='设置用户公司名称']").send_keys("gnway")
+        self.driver.find_element_by_xpath("//input[@placeholder='设置用户公司名称']").send_keys(k)
         time.sleep(1)
         self.driver.find_element_by_xpath("//input[@placeholder='设置登录云平台的管理账户']").clear()
         time.sleep(1)
@@ -154,17 +162,28 @@ class ClientTest(unittest.TestCase):
         try:
             #compo = WebDriverWait(self.driver,10,1).until(EC.text_to_be_present_in_element((By.XPATH,"//*[@id='customlist']/tbody/tr[1]/td[2]/div[@title='1']/../following-sibling::td[2]/div[@class='tdhidden']")))
             comp = self.driver.find_element_by_xpath("//*[@id='customlist']/tbody/tr[1]/td[2]/div[@title='1']/../following-sibling::td[2]/div[@class='tdhidden']").text
-            if comp == "gnway":
+            if comp == k:
                 print("添加客户成功")
         except:
             print("添加客户失败")
 
 
 
-
-
-
-
+    def test_2_editHost(self):
+        self.clickHost()
+        time.sleep(2)
+        self.selectHost()
+        time.sleep(2)
+        self.editHost()
+        time.sleep(2)
+        try:
+            textIP = self.driver.find_element_by_xpath('//*[@id="addhostform"]/div/div[1]/div/input').get_attribute('value')
+            print(type(textIP))
+            textPort = self.driver.find_element_by_xpath('//*[@id="addhostform"]/div/div[2]/div/input').get_attribute('value')
+            if textIP == "221.221.138.254" and textPort == "2251":
+                return
+        except:
+            print("编辑主机失败")
 
 
 
