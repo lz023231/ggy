@@ -28,5 +28,7 @@ print(h)
 
 print(t)
 '''
-t = datetime.datetime.now().strftime('%Y-%m-%d-%H-%M-%S')
-print(t)
+#t = datetime.datetime.now().strftime('%Y-%m-%d-%H-%M-%S')
+#print(t)
+k = "ds"
+print(k + 'd')
