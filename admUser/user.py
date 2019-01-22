@@ -29,11 +29,13 @@ class ClientTest(unittest.TestCase):
             else:
                 print("勾选重复登录时显示不正常")
         else:
-            f = self.driver.find_element_by_xpath("//input[@placeholder='0-2040，默认为最大']").is_displayed()
-            if f == True:
-                print("没有勾选重复登录时显示不正常")
-            else:
-                print("没有勾选重复登录时显示正常")
+            print("-----------")
+            try:
+
+                self.driver.find_element_by_xpath("//input[@placeholder='0-2040，默认为最大']").is_displayed()
+                print("没有勾选时显示错误")
+            except:
+                print("没有勾选时显示正确")
 
 
 
@@ -146,9 +148,17 @@ class ClientTest(unittest.TestCase):
 
     def test_2_addUser(self):
         print("---------------------------添加用户-----------------------------")
+
+
         h = self.driver.find_element_by_xpath(
             "//div[@title=1]/../following-sibling::td[1]/div[@class='tdhidden']").get_attribute('title')
-        print(h)
+
+        self.driver.find_element_by_xpath("//a[contains(text(),'尾页')]").click()
+        time.sleep(3)
+        s = self.driver.find_elements_by_css_selector("tbody>tr")
+        # print(len(s))
+        l = len(s)
+        #print(h)
         #self.selectUser()
         #time.sleep(2)
         self.addUser()
@@ -206,12 +216,29 @@ class ClientTest(unittest.TestCase):
         time.sleep(1)
         self.driver.refresh()
         time.sleep(2)
+
+        self.driver.find_element_by_xpath("//a[contains(text(),'尾页')]").click()
+        time.sleep(3)
+        s2 = self.driver.find_elements_by_css_selector("tbody>tr")
+        l2 = len(s2)
+        if l == l2:
+            print("第一次添加用户失败")
+        else:
+            print("第一次添加用户成功")
+
+        '''
         j = self.driver.find_element_by_xpath(
             "//div[@title=1]/../following-sibling::td[1]/div[@class='tdhidden']").get_attribute('title')
         if h == j:
             print("第一次添加用户成功")
         else:
             print("第一次添加用户失败")
+        '''
+
+        self.driver.find_element_by_xpath("//a[contains(text(),'尾页')]").click()
+        time.sleep(3)
+        s3 = self.driver.find_elements_by_css_selector("tbody>tr")
+        l3 = len(s3)
         self.addUser()
         time.sleep(2)
         try:
@@ -221,33 +248,50 @@ class ClientTest(unittest.TestCase):
 
         self.driver.find_element_by_xpath("//input[@name='username']").send_keys(k + '1')
         time.sleep(1)
-        self.driver.find_element_by_xpath("//input[@value='descript']").send_keys(k + '1')
+        self.driver.find_element_by_xpath("//*[@id='addgroupform']/div/div/div[2]/input[@name='descript']").send_keys(k + '1')
         time.sleep(1)
-        self.driver.find_element_by_xpath("//input[@name=''password]").send_keys(k + '1')
+        self.driver.find_element_by_xpath("//input[@id='password']").send_keys(k + '1')
         time.sleep(1)
-        self.driver.find_element_by_xpath("//input[@name='repassword']").send_keys(k + '2')
+        self.driver.find_element_by_xpath("//*[@id='addgroupform']/div/div/div[4]/input[@name='repassword']").send_keys(k + '2')
         time.sleep(1)
         self.driver.find_element_by_xpath("//input[@name='contact']").send_keys(k + '1')
         time.sleep(2)
         #self.judge_repeat_login()
-        self.driver.find_element_by_xpath("//input[value='保存']").click()
+        #self.driver.find_element_by_xpath("//input[value='保存']").click()
+        #print("-------------")
         time.sleep(2)
         try:
             self.driver.find_element_by_xpath("//label[contains(text(),'两次密码输入不一致')]").is_displayed()
         except:
             print("两次密码不一致时没有出现提示")
+        self.driver.find_element_by_xpath("//*[@id='addgroupform']/div/div/div[4]/input[@name='repassword']").clear()
+        time.sleep(1)
+        self.driver.find_element_by_xpath("//*[@id='addgroupform']/div/div/div[4]/input[@name='repassword']").send_keys(k + '1')
+        time.sleep(1)
         self.driver.find_element_by_xpath("//input[@name='repeatlogin']").click()
+        time.sleep(1)
         self.judge_repeat_login()
-        self.driver.find_element_by_xpath("//input[value='保存']").click()
+        self.driver.find_element_by_xpath("//*[@id='addgroupform']/div/div/div[11]/input[1]").click()
         time.sleep(1)
         self.driver.refresh()
+        self.driver.find_element_by_xpath("//a[contains(text(),'尾页')]").click()
+        time.sleep(3)
+        s4 = self.driver.find_elements_by_css_selector("tbody>tr")
+        l4 = len(s4)
+        if l3 == l4:
+            print("第二次添加用户失败")
+        else:
+            print("第二次添加用户成功")
+
+
+        '''
         b = self.driver.find_element_by_xpath(
             "//div[@title=1]/../following-sibling::td[1]/div[@class='tdhidden']").get_attribute('title')
         if b == k + '1':
             print("第二次添加用户成功")
         else:
             print("第二次添加用户失败")
-
+        '''
 
 
 
