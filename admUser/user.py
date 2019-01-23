@@ -12,7 +12,7 @@ class ClientTest(unittest.TestCase):
         self.driver = webdriver.Chrome()
         self.driver.maximize_window()
         self.driver.implicitly_wait(10)
-        self.driver.get("https://yun.gnway.com")
+        self.driver.get("https://testzzl01.yun.gnway.com")
         username = 'testzzl01'
         password = 'testzzl01'
         time.sleep(3)
@@ -63,10 +63,14 @@ class ClientTest(unittest.TestCase):
                 e = self.driver.find_element_by_xpath("//div[@title=1]/../preceding-sibling::td[1]/div/input[@type='checkbox']").is_displayed()
                 print("---")
                 print(e)
+                break
             except:
                 e = False
-                print("----")
+
+                print("第一分用户前没有勾选框")
                 print(e)
+                break
+        '''
             if e == False:
 
                 self.findUser()
@@ -74,6 +78,7 @@ class ClientTest(unittest.TestCase):
                 self.driver.find_element_by_xpath("//a[contains(text(),'后一页')]").click()
             else:
                 break
+        '''
 
         t = self.driver.find_element_by_xpath("//div[@title=1]/../preceding-sibling::td[1]/div/input[@type='checkbox']").is_selected()
         while t == False:
@@ -84,7 +89,7 @@ class ClientTest(unittest.TestCase):
                     return
                 break
             except:
-                print("选择主机失败")
+                print("选择用户失败")
 
     def test_1_deleteUser(self):
         x = self.driver.find_element_by_xpath(
@@ -219,13 +224,23 @@ class ClientTest(unittest.TestCase):
 
         self.driver.find_element_by_xpath("//a[contains(text(),'尾页')]").click()
         time.sleep(3)
+        #m1 = '{}{}{}'.format("//div[@title='", k, "']")
+        r1 = k + "']"
+        n1 = self.driver.find_element_by_xpath("//div[@title='" + r1).is_displayed()
+        #h =
+        print(n1)
+        if n1 == True:
+            print('第一次添加用户成功')
+        else:
+            print("第一次添加用户失败")
+            '''
         s2 = self.driver.find_elements_by_css_selector("tbody>tr")
         l2 = len(s2)
         if l == l2:
             print("第一次添加用户失败")
         else:
             print("第一次添加用户成功")
-
+        '''
         '''
         j = self.driver.find_element_by_xpath(
             "//div[@title=1]/../following-sibling::td[1]/div[@class='tdhidden']").get_attribute('title')
@@ -276,6 +291,14 @@ class ClientTest(unittest.TestCase):
         self.driver.refresh()
         self.driver.find_element_by_xpath("//a[contains(text(),'尾页')]").click()
         time.sleep(3)
+        #m = '{}{}{}{}{}{}'.format('"',"//div[@title='",k,'1',"']",'"')
+        r = k + "1']"
+        n = self.driver.find_element_by_xpath("//div[@title='" + r).is_displayed()
+        if n == True:
+            print('第二次添加用户成功')
+        else:
+            print("第二次添加用户失败")
+            '''
         s4 = self.driver.find_elements_by_css_selector("tbody>tr")
         l4 = len(s4)
         if l3 == l4:
@@ -283,7 +306,7 @@ class ClientTest(unittest.TestCase):
         else:
             print("第二次添加用户成功")
 
-
+        '''
         '''
         b = self.driver.find_element_by_xpath(
             "//div[@title=1]/../following-sibling::td[1]/div[@class='tdhidden']").get_attribute('title')
@@ -299,7 +322,67 @@ class ClientTest(unittest.TestCase):
         self.selectUser()
         time.sleep(2)
         self.editUser()
-        #try:
+        d = self.driver.find_element_by_xpath("//input[@id='password']").get_attribute('value')
+        print(d)
+        try:
+            #self.driver.find_element_by_xpath("//input[@name='username']").clear()
+            #time.sleep(1)
+            #self.driver.find_element_by_xpath("//input[@name='username']").send_keys(d + '1')
+            #time.sleep(1)
+            self.driver.find_element_by_xpath(
+                "//*[@id='addgroupform']/div/div/div[2]/input[@name='descript']").clear()
+            time.sleep(1)
+            self.driver.find_element_by_xpath(
+                "//*[@id='addgroupform']/div/div/div[2]/input[@name='descript']").send_keys(d + '1')
+            time.sleep(1)
+            self.driver.find_element_by_xpath("//input[@id='password']").clear()
+            time.sleep(1)
+            self.driver.find_element_by_xpath("//input[@id='password']").send_keys(d + '1')
+            time.sleep(1)
+            self.driver.find_element_by_xpath("//*[@id='addgroupform']/div/div/div[4]/input[@name='repassword']").clear()
+            time.sleep(1)
+            self.driver.find_element_by_xpath("//*[@id='addgroupform']/div/div/div[4]/input[@name='repassword']").send_keys(d + '1')
+            time.sleep(1)
+            self.driver.find_element_by_xpath("//input[@name='contact']").clear()
+            time.sleep(1)
+            self.driver.find_element_by_xpath("//input[@name='contact']").send_keys(d + '1')
+            time.sleep(1)
+            self.driver.find_element_by_xpath("//input[@placeholder='备注']").clear()
+            time.sleep(1)
+            self.driver.find_element_by_xpath("//input[@placeholder='备注']").send_keys(d + '1')
+            time.sleep(1)
+            self.driver.find_element_by_xpath("//input[@name='repeatlogin']").click()
+            self.judge_repeat_login()
+            self.driver.find_element_by_xpath("//input[@value='保存']").click()
+            time.sleep(3)
+            self.driver.refresh()
+            self.selectUser()
+            time.sleep(1)
+            self.editUser()
+            time.sleep(1)
+
+            #q1 = self.driver.find_element_by_xpath("//input[@name='username']").get_attribute('value')
+            #time.sleep(1)
+            q2 = self.driver.find_element_by_xpath(
+            "//*[@id='addgroupform']/div/div/div[2]/input[@name='descript']").get_attribute('value')
+            time.sleep(1)
+            q3 = self.driver.find_element_by_xpath("//input[@id='password']").get_attribute('value')
+            time.sleep(1)
+            q4 = self.driver.find_element_by_xpath("//*[@id='addgroupform']/div/div/div[4]/input[@name='repassword']").get_attribute('value')
+            time.sleep(1)
+            q5 = self.driver.find_element_by_xpath("//input[@name='contact']").get_attribute('value')
+            time.sleep(1)
+            q6 =self.driver.find_element_by_xpath("//input[@placeholder='备注']").get_attribute('value')
+            u = d + '1'
+            print(type(q2))
+            print(type(u))
+            if q2 == u and q3 == u and q4 == u and q5 == u and q6 == u:
+                print('编辑成功')
+            else:
+                print('编辑失败')
+        except:
+            print('编辑失败')
+
 
 
 

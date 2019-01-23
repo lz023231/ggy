@@ -180,6 +180,13 @@ class ClientTest(unittest.TestCase):
         #加用户
     def test_3_addUserS(self):
         print('---------------------------添加用户------------------------------')
+
+
+
+
+
+
+
         self.clickUser()
         time.sleep(2)
         self.selectHost()

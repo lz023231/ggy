@@ -30,5 +30,10 @@ print(t)
 '''
 #t = datetime.datetime.now().strftime('%Y-%m-%d-%H-%M-%S')
 #print(t)
-k = "ds"
-print(k + 'd')
+#k = "ds"
+#print(k + 'd')
+k = "ceshi"
+m = '{}{}{}{}{}{}'.format('"',"//div[@title='",k,'1',"']",'"')
+print(m)
+m1 = '{}{}{}{}{}'.format('"',"//div[@title='",k, "']",   '"')
+print(m1)
