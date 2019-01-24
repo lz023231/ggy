@@ -36,8 +36,13 @@ class ClientTest(unittest.TestCase):
                 print("没有勾选时显示错误")
             except:
                 print("没有勾选时显示正确")
-
-
+    def changePasswd(self):
+        try:
+            element = WebDriverWait(self.driver,10,1).until(EC.element_to_be_clickable((By.XPATH,"//a[contains(text(),'修改密码')]")))
+            element.click()
+            self.driver.find_element_by_xpath("//strong[contains(text(),'旧密码')]").is_displayed()
+        except:
+            print("点击修改密码失败或没有出现二级菜单")
 
 
     def addUser(self):
@@ -323,6 +328,8 @@ class ClientTest(unittest.TestCase):
         time.sleep(2)
         self.editUser()
         d = self.driver.find_element_by_xpath("//input[@id='password']").get_attribute('value')
+        d = int(d)
+        d = d + 1
         print(d)
         try:
             #self.driver.find_element_by_xpath("//input[@name='username']").clear()
@@ -333,23 +340,23 @@ class ClientTest(unittest.TestCase):
                 "//*[@id='addgroupform']/div/div/div[2]/input[@name='descript']").clear()
             time.sleep(1)
             self.driver.find_element_by_xpath(
-                "//*[@id='addgroupform']/div/div/div[2]/input[@name='descript']").send_keys(d + '1')
+                "//*[@id='addgroupform']/div/div/div[2]/input[@name='descript']").send_keys(d)
             time.sleep(1)
             self.driver.find_element_by_xpath("//input[@id='password']").clear()
             time.sleep(1)
-            self.driver.find_element_by_xpath("//input[@id='password']").send_keys(d + '1')
+            self.driver.find_element_by_xpath("//input[@id='password']").send_keys(d)
             time.sleep(1)
             self.driver.find_element_by_xpath("//*[@id='addgroupform']/div/div/div[4]/input[@name='repassword']").clear()
             time.sleep(1)
-            self.driver.find_element_by_xpath("//*[@id='addgroupform']/div/div/div[4]/input[@name='repassword']").send_keys(d + '1')
+            self.driver.find_element_by_xpath("//*[@id='addgroupform']/div/div/div[4]/input[@name='repassword']").send_keys(d)
             time.sleep(1)
             self.driver.find_element_by_xpath("//input[@name='contact']").clear()
             time.sleep(1)
-            self.driver.find_element_by_xpath("//input[@name='contact']").send_keys(d + '1')
+            self.driver.find_element_by_xpath("//input[@name='contact']").send_keys(d)
             time.sleep(1)
             self.driver.find_element_by_xpath("//input[@placeholder='备注']").clear()
             time.sleep(1)
-            self.driver.find_element_by_xpath("//input[@placeholder='备注']").send_keys(d + '1')
+            self.driver.find_element_by_xpath("//input[@placeholder='备注']").send_keys(d)
             time.sleep(1)
             self.driver.find_element_by_xpath("//input[@name='repeatlogin']").click()
             self.judge_repeat_login()
@@ -382,6 +389,49 @@ class ClientTest(unittest.TestCase):
                 print('编辑失败')
         except:
             print('编辑失败')
+    def test_4_changePasswd(self):
+        try:
+            self.changePasswd()
+            time.sleep(2)
+            self.driver.find_element_by_xpath("//input[@name='password']").send_keys('testzzl01')
+            time.sleep(1)
+            self.driver.find_element_by_xpath("//input[@name='newpassword']").send_keys("1")
+            self.driver.find_element_by_xpath("//input[@name='renewpassword']").send_keys("1")
+            time.sleep(2)
+            self.driver.find_element_by_xpath("//input[@value='确认']").click()
+            self.driver.refresh()
+            url = self.driver.current_url
+            self.driver.find_element_by_xpath("//a[contains(text(),'退出')]").click()
+            time.sleep(1)
+            self.driver.refresh()
+            url2 = self.driver.current_url
+            print(url2)
+            if url == url2:
+                print("没有退出到登录界面")
+            else:
+                print("退出成功")
+            Login().login(self.driver,'testzzl01','1')
+            time.sleep(2)
+            url3 = self.driver.current_url
+            print(url3)
+            if url2 == url3:
+                print('登录失败，修改密码失败')
+            else:
+                print("登录成功，修改密码成功")
+                self.changePasswd()
+                time.sleep(1)
+                self.driver.find_element_by_xpath("//input[@name='password']").send_keys("1")
+                time.sleep(1)
+                self.driver.find_element_by_xpath("//input[@name='newpassword']").send_keys("testzzl01")
+                time.sleep(1)
+                self.driver.find_element_by_xpath("//input[@name='renewpassword']").send_keys("testzzl01")
+                time.sleep(1)
+                self.driver.find_element_by_xpath("//input[@value='确认']").click()
+        except:
+            print("修改密码失败")
+
+
+
 
 
 
