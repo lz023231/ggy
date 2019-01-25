@@ -37,3 +37,7 @@ m = '{}{}{}{}{}{}'.format('"',"//div[@title='",k,'1',"']",'"')
 print(m)
 m1 = '{}{}{}{}{}'.format('"',"//div[@title='",k, "']",   '"')
 print(m1)
+d = '4'
+d = int(d)
+d = d + 1
+print(d)
