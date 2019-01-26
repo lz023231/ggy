@@ -183,6 +183,7 @@ class ClientTest(unittest.TestCase):
 
 
     def test_2_editHost(self):
+        #因为主机内容需要制定ip和端口，所以不编辑，只确认编辑按钮是否能点击，里面是否显示内容
         self.clickHost()
         time.sleep(2)
         self.selectHost()
