@@ -6,6 +6,10 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 import unittest
 from selenium import webdriver
+from pykeyboard import PyKeyboard
+import os
+from selenium.webdriver.common.action_chains import ActionChains
+
 
 class ClientTest(unittest.TestCase):
     def setUp(self):
@@ -462,6 +466,10 @@ class ClientTest(unittest.TestCase):
             time.sleep(1)
             self.editUser()
             time.sleep(1)
+            self.driver.find_element_by_xpath("//input[@name='repeatlogin']").click()
+            self.judge_repeat_login()
+            time.sleep(1)
+
 
             #q1 = self.driver.find_element_by_xpath("//input[@name='username']").get_attribute('value')
             #time.sleep(1)
@@ -477,7 +485,8 @@ class ClientTest(unittest.TestCase):
             q5 = self.driver.find_element_by_xpath("//input[@name='contact']").get_attribute('value')
             time.sleep(1)
             q6 =self.driver.find_element_by_xpath("//input[@placeholder='备注']").get_attribute('value')
-
+            self.driver.find_element_by_xpath("//input[@value='保存']").click()
+            print(d,q2,q3,q4,q5,q6)
             q3 = int(q3)
             q4 = int(q4)
             q5 = int(q5)
@@ -489,7 +498,7 @@ class ClientTest(unittest.TestCase):
             else:
                 print('编辑失败')
         except:
-            print("----")
+            print("--ee--")
             print('编辑失败')
     def test_4_changePasswd(self):
         print("-----------------------------修改密码-------------------------------")
@@ -554,6 +563,7 @@ class ClientTest(unittest.TestCase):
         #获取密码
         h2 = self.driver.find_element_by_xpath("//input[@id='password']").get_attribute('value')
         #退出编辑
+        #self.driver.find_element_by_xpath("//input[@value='保存']").click()
         self.driver.find_element_by_xpath("//*[@id='addgroupform']/div/div/div[12]/input[2]").click()
         time.sleep(1)
         self.driver.find_element_by_xpath("//a[contains(text(),'退出')]").click()
@@ -561,6 +571,55 @@ class ClientTest(unittest.TestCase):
         #登录终端用户
         Login().login(self.driver,h,h2)
         time.sleep(2)
+
+        s = self.driver.find_element_by_xpath("//span[contains(text(),'下载客户端')]")
+        ActionChains(self.driver).move_to_element(s).perform()
+        time.sleep(2)
+        self.driver.find_element_by_xpath("//a[contains(text(),'Windows PC版')]").click()
+        time.sleep(2)
+        # self.driver.switch_to.alert.accept()
+        k = PyKeyboard()
+        #k.tap_key(k.tab_key)
+        time.sleep(2)
+        #k.tap_key(k.enter_key)
+        k.tap_key(k.tab_key)
+        time.sleep(1)
+        k.tap_key(k.tab_key)
+        time.sleep(1)
+        k.tap_key(k.tab_key)
+        time.sleep(1)
+        k.tap_key(k.tab_key)
+        time.sleep(1)
+        k.tap_key(k.tab_key)
+        time.sleep(1)
+        k.tap_key(k.enter_key)
+        time.sleep(5)
+        path = r"C:\Users\lz\Downloads\setup_std_client.exe"
+        e = os.path.exists(path)
+        print(e)
+        if e == False:
+            print("下载文件失败")
+            return
+        else:
+            os.remove(path)
+            print("下载文件成功")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         try:
             #点击二维码
             self.driver.find_element_by_xpath("//span[contains(text(),'手机扫码登录')]").click()
