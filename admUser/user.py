@@ -572,6 +572,7 @@ class ClientTest(unittest.TestCase):
         Login().login(self.driver,h,h2)
         time.sleep(2)
 
+        #下载Windows PC版
         s = self.driver.find_element_by_xpath("//span[contains(text(),'下载客户端')]")
         ActionChains(self.driver).move_to_element(s).perform()
         time.sleep(2)
@@ -604,10 +605,39 @@ class ClientTest(unittest.TestCase):
             os.remove(path)
             print("下载文件成功")
 
+        #下载MAC OS X版文件
+        ActionChains(self.driver).move_to_element(s).perform()
+        time.sleep(2)
+        self.driver.find_element_by_xpath("//a[contains(text(),'MAC OS X版')]").click()
+        time.sleep(2)
+        # self.driver.switch_to.alert.accept()
+        k = PyKeyboard()
+        # k.tap_key(k.tab_key)
+        time.sleep(2)
+        # k.tap_key(k.enter_key)
+        k.tap_key(k.tab_key)
+        time.sleep(1)
+        k.tap_key(k.tab_key)
+        time.sleep(1)
+        k.tap_key(k.tab_key)
+        time.sleep(1)
+        k.tap_key(k.tab_key)
+        time.sleep(1)
+        k.tap_key(k.tab_key)
+        time.sleep(1)
+        k.tap_key(k.enter_key)
+        time.sleep(5)
+        path = r"C:\Users\lz\Downloads\GNWayESLMACClient.zip"
+        e = os.path.exists(path)
+        print(e)
+        if e == False:
+            print("下载文件失败")
+            return
+        else:
+            os.remove(path)
+            print("下载文件成功")
 
-
-
-
+            time.sleep(100)
 
 
 

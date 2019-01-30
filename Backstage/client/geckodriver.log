@@ -1,0 +1,184 @@
+1548659596227	mozrunner::runner	INFO	Running command: "D:\\乱七八糟\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\lz\\AppData\\Local\\Temp\\3\\rust_mozprofile.Zqq5ognbrF1D"
+1548659597259	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid host permission: resource://pdf.js/
+1548659597259	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid host permission: about:reader*
+1548659599252	Marionette	INFO	Listening on port 60393
+1548659599541	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://testzzl01.yun.gnway.com/js/jquery-1.10.2.min.js, line 1: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+JavaScript warning: https://testzzl01.yun.gnway.com/js/jquery-1.10.2.min.js, line 1: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+JavaScript error: resource:///actors/NetErrorChild.jsm, line 683: TypeError: docShell.failedChannel is null
+1548659614297	Marionette	INFO	Stopped listening on port 60393
+[Child 8720, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 8720, [Child 8632, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 8632, Chrome
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+[GPU 11928
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+1548659738518	mozrunner::runner	INFO	Running command: "D:\\乱七八糟\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\lz\\AppData\\Local\\Temp\\3\\rust_mozprofile.8HlOa8WyZQVl"
+1548659739278	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid host permission: resource://pdf.js/
+1548659739278	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid host permission: about:reader*
+1548659740796	Marionette	INFO	Listening on port 60620
+1548659741323	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://testzzl01.yun.gnway.com/js/jquery-1.10.2.min.js, line 1: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+JavaScript warning: https://testzzl01.yun.gnway.com/js/jquery-1.10.2.min.js, line 1: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+JavaScript error: resource:///actors/NetErrorChild.jsm, line 683: TypeError: docShell.failedChannel is null
+1548659755174	Marionette	INFO	Stopped listening on port 60620
+[Child 840, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 840, C[GP
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+U 7296
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+1548659857190	mozrunner::runner	INFO	Running command: "D:\\乱七八糟\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\lz\\AppData\\Local\\Temp\\3\\rust_mozprofile.o3yhFzamuD5z"
+1548659857926	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid host permission: resource://pdf.js/
+1548659857926	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid host permission: about:reader*
+1548659859383	Marionette	INFO	Listening on port 60792
+1548659859451	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://testzzl01.yun.gnway.com/js/jquery-1.10.2.min.js, line 1: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+JavaScript warning: https://testzzl01.yun.gnway.com/js/jquery-1.10.2.min.js, line 1: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+JavaScript error: resource:///actors/NetErrorChild.jsm, line 683: TypeError: docShell.failedChannel is null
+1548659871992	Marionette	INFO	Stopped listening on port 60792
+[Child 12196, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 1219[Child 5376, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 5376, Chrome[GPU
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+ 9492, Chrome_
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+1548661720666	mozrunner::runner	INFO	Running command: "D:\\乱七八糟\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\lz\\AppData\\Local\\Temp\\3\\rust_mozprofile.jvYMQ0OYIGhM"
+1548661721533	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid host permission: resource://pdf.js/
+1548661721533	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid host permission: about:reader*
+1548661723038	Marionette	INFO	Listening on port 64819
+1548661723499	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://testzzl01.yun.gnway.com/js/jquery-1.10.2.min.js, line 1: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+JavaScript warning: https://testzzl01.yun.gnway.com/js/jquery-1.10.2.min.js, line 1: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+1548661741976	Marionette	INFO	Stopped listening on port 64819
+[Child 6964, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 6964, C[Parent 8348, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 10672, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 10672, C[Child 16668, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 16668, 
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+[GPU 11548, Chr
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+1548661753670	mozrunner::runner	INFO	Running command: "D:\\乱七八糟\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\lz\\AppData\\Local\\Temp\\3\\rust_mozprofile.YBxfRw9HpnIv"
+1548661754539	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid host permission: resource://pdf.js/
+1548661754539	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid host permission: about:reader*
+1548661756052	Marionette	INFO	Listening on port 64951
+1548661756548	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://testzzl01.yun.gnway.com/js/jquery-1.10.2.min.js, line 1: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+JavaScript warning: https://testzzl01.yun.gnway.com/js/jquery-1.10.2.min.js, line 1: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+1548661780391	Marionette	INFO	Stopped listening on port 64951
+console.error: "Protocol error (noSuchActor): No such actor for ID: server1.conn0.child1/highlighter28"
+[Child 16180, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 16180,[Parent 16940, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 880, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 880, Chr
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+[GPU 12688,
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+1548666036032	mozrunner::runner	INFO	Running command: "D:\\乱七八糟\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\lz\\AppData\\Local\\Temp\\3\\rust_mozprofile.dNz1Go7YlhjR"
+1548666036942	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid host permission: resource://pdf.js/
+1548666036942	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid host permission: about:reader*
+1548666038772	Marionette	INFO	Listening on port 58770
+1548666038877	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://testzzl01.yun.gnway.com/js/jquery-1.10.2.min.js, line 1: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+JavaScript warning: https://testzzl01.yun.gnway.com/js/jquery-1.10.2.min.js, line 1: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+1548666053840	Marionette	INFO	Stopped listening on port 58770
+[Child 9332, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 9332[Child 16344, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 16344, Chrome[GPU
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+1548666374208	mozrunner::runner	INFO	Running command: "D:\\乱七八糟\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\lz\\AppData\\Local\\Temp\\3\\rust_mozprofile.BvgpTIHjgXGK"
+1548666375163	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid host permission: resource://pdf.js/
+1548666375163	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid host permission: about:reader*
+1548666376644	Marionette	INFO	Listening on port 59638
+1548666377051	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://testzzl01.yun.gnway.com/js/jquery-1.10.2.min.js, line 1: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+JavaScript warning: https://testzzl01.yun.gnway.com/js/jquery-1.10.2.min.js, line 1: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+1548666392827	Marionette	INFO	Stopped listening on port 59638
+[Child 7552, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 7552, [Child 10480, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 10480, Chr[Parent 14868, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 628, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 628, Chr
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+[GPU 16836, C
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+1548666547252	mozrunner::runner	INFO	Running command: "D:\\乱七八糟\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\lz\\AppData\\Local\\Temp\\3\\rust_mozprofile.rtSydtj64Tf4"
+1548666548037	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid host permission: resource://pdf.js/
+1548666548037	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid host permission: about:reader*
+1548666549604	Marionette	INFO	Listening on port 60083
+1548666550025	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://testzzl01.yun.gnway.com/js/jquery-1.10.2.min.js, line 1: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+JavaScript warning: https://testzzl01.yun.gnway.com/js/jquery-1.10.2.min.js, line 1: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+1548666565369	Marionette	INFO	Stopped listening on port 60083
+[Child 9832, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 9832, Chr[Child 7832, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 7832, Chrom
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+[GP
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+1548666729372	mozrunner::runner	INFO	Running command: "D:\\乱七八糟\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\lz\\AppData\\Local\\Temp\\3\\rust_mozprofile.YTQGsta0h8yb"
+1548666730198	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid host permission: resource://pdf.js/
+1548666730198	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid host permission: about:reader*
+1548666731733	Marionette	INFO	Listening on port 60565
+1548666732163	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://testzzl01.yun.gnway.com/js/jquery-1.10.2.min.js, line 1: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+JavaScript warning: https://testzzl01.yun.gnway.com/js/jquery-1.10.2.min.js, line 1: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+1548666747289	Marionette	INFO	Stopped listening on port 60565
+[Parent 1528, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 13752, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 13752, Chrome_ChildThrea[GPU 6120, Chr
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+1548734215326	mozrunner::runner	INFO	Running command: "D:\\乱七八糟\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\lz\\AppData\\Local\\Temp\\2\\rust_mozprofile.2WRKNw2BscnR"
+1548734216280	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid host permission: resource://pdf.js/
+1548734216280	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid host permission: about:reader*
+1548734218624	Marionette	INFO	Listening on port 49190
+1548734218759	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://testzzl01.yun.gnway.com/js/jquery-1.10.2.min.js, line 1: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+JavaScript warning: https://testzzl01.yun.gnway.com/js/jquery-1.10.2.min.js, line 1: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+1548734236069	Marionette	INFO	Stopped listening on port 49190
+[Parent 15152, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 11664, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 11664, Chrome_C[Parent 15152, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 11688, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 11688, Chrome_
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+[GPU 
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+1548734427203	mozrunner::runner	INFO	Running command: "D:\\乱七八糟\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\lz\\AppData\\Local\\Temp\\2\\rust_mozprofile.lIQfaIT8I44g"
+1548734428013	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid host permission: resource://pdf.js/
+1548734428013	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid host permission: about:reader*
+1548734429554	Marionette	INFO	Listening on port 49469
+1548734430041	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://testzzl01.yun.gnway.com/js/jquery-1.10.2.min.js, line 1: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+JavaScript warning: https://testzzl01.yun.gnway.com/js/jquery-1.10.2.min.js, line 1: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+1548734497595	Marionette	INFO	Stopped listening on port 49469
+[Child 7188, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 7188, Chrom[Child 128, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 128, Chr[Child 19376, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 19376,
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+[GP
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
