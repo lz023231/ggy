@@ -637,7 +637,7 @@ class ClientTest(unittest.TestCase):
             os.remove(path)
             print("下载文件成功")
 
-            time.sleep(100)
+            time.sleep(10)
 
 
 
