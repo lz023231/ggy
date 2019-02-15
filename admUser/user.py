@@ -574,6 +574,8 @@ class ClientTest(unittest.TestCase):
 
         #下载Windows PC版
         s = self.driver.find_element_by_xpath("//span[contains(text(),'下载客户端')]")
+
+        #ActionChains是一个动作链，当调用这个方法时，所有的操作会被存储在一个队列中，当执行perform()方法时，就会按顺序执行队列中的方法，move_to_element()这个方法是指悬浮在某元素上
         ActionChains(self.driver).move_to_element(s).perform()
         time.sleep(2)
         self.driver.find_element_by_xpath("//a[contains(text(),'Windows PC版')]").click()
@@ -610,7 +612,7 @@ class ClientTest(unittest.TestCase):
         time.sleep(2)
         self.driver.find_element_by_xpath("//a[contains(text(),'MAC OS X版')]").click()
         time.sleep(2)
-        # self.driver.switch_to.alert.accept()
+        # self.driver.switch_to.alert.accept() ：这是关于弹窗的方法
         k = PyKeyboard()
         # k.tap_key(k.tab_key)
         time.sleep(2)
@@ -628,6 +630,8 @@ class ClientTest(unittest.TestCase):
         k.tap_key(k.enter_key)
         time.sleep(5)
         path = r"C:\Users\lz\Downloads\GNWayESLMACClient.zip"
+
+        #查看path这个路径是否存在（因为这里path是一个压缩包，所以就是查看这个文件是否存在）
         e = os.path.exists(path)
         print(e)
         if e == False:
