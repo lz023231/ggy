@@ -8,7 +8,7 @@ class LoginCase(unittest.TestCase):
         self.driver.maximize_window()
 
     def Login(self,username,password):
-        self.driver.get('http://yun.gnway.com/admin')
+        self.driver.get("http://yun.gnway.com/admin")
         self.driver.find_element_by_name('username').clear()
         self.driver.find_element_by_name('username').send_keys(username)
         self.driver.find_element_by_name('username').send_keys(Keys.TAB)

@@ -318,6 +318,7 @@ class ClientTest(unittest.TestCase):
 
         #点击确定，查看是否出现提示
         self.driver.find_element_by_xpath("//input[@value='确定']").click()
+        time.sleep(2)
         try:
             self.driver.find_element_by_xpath("//div[contains(text(),'此次操作扣费')]").is_displayed()
         except:
@@ -453,11 +454,24 @@ class ClientTest(unittest.TestCase):
                 cont = self.driver.find_element_by_xpath("//td[contains(text(),'联系人')]/following-sibling::td[1]").text
                 if note == "test" and cont == "test":
                     print("详情显示正确")
+                    self.driver.find_element_by_xpath("//input[@value='确认']").click()
                 else:
                     print("详情显示错误")
+                    self.driver.find_element_by_xpath("//input[@value='确认']").click()
             else:
                 print("编辑备注时失败")
             break
+        self.selectHost()
+        time.sleep(2)
+        self.editUser()
+        time.sleep(2)
+        self.driver.find_element_by_xpath("//input[@placeholder='备注']").clear()
+        time.sleep(2)
+        self.driver.find_element_by_xpath("//input[@placeholder='填写联系人']").clear()
+        time.sleep(2)
+        self.driver.find_element_by_xpath("//input[@value='确认']").click()
+
+
 
     def test_6_reduceUser(self):
         print("--------------------------------减用户-----------------------------------")

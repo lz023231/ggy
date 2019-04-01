@@ -133,7 +133,6 @@ class ClientTest(unittest.TestCase):
         #获取第二个单选框的value值
         x = self.driver.find_element_by_xpath(
             "//div[@title=2]/../preceding-sibling::td[1]/div/input[@type='checkbox']").get_attribute('value')
-        print(x)
 
         x = int(x)
         print(x)
@@ -217,8 +216,10 @@ class ClientTest(unittest.TestCase):
         print("---------------------------添加用户-----------------------------")
 
         #获取第一个用户的用户名
+        time.sleep(2)
         h = self.driver.find_element_by_xpath(
             "//div[@title=1]/../following-sibling::td[1]/div[@class='tdhidden']").get_attribute('title')
+        print(h)
 
         #点击尾页
         self.driver.find_element_by_xpath("//a[contains(text(),'尾页')]").click()
@@ -255,15 +256,21 @@ class ClientTest(unittest.TestCase):
             self.driver.find_element_by_xpath("//label[@id='username-error']").is_displayed()
             self.driver.find_element_by_xpath("//label[@id='password-error']").is_displayed()
             self.driver.find_element_by_xpath("//label[contains(text(),'请再次输入密码')]").is_displayed()
+            print("什么都不填写时出现提示")
         except:
             print("什么都不添写时，点击保存时，没有出现错误提示")
         time.sleep(1)
+        self.driver.find_element_by_xpath("//input[@value='保存']/following-sibling::input[1]").click()
+        time.sleep(2)
+
 
         #添加已经存在的用户名，查看是否提示
         try:
-            self.driver.find_element_by_xpath("//input[@name='username']").send_keys(h)
+            self.addUser()
+            self.driver.find_element_by_xpath("//input[@placeholder='用户名']").send_keys(h)
+            print(120)
             self.driver.find_element_by_xpath("//input[@id='password']").send_keys(h)
-            self.driver.find_element_by_xpath("//*[@id='addgroupform']/div/div/div[4]/input[@name='repassword']").send_keys(h)
+            self.driver.find_element_by_xpath("//*[@id='addgroupform']/div/div/div[5]/input[@name='repassword']").send_keys(h)
             time.sleep(1)
             self.driver.find_element_by_xpath("//input[@value='保存']").click()
             time.sleep(1)
@@ -279,21 +286,21 @@ class ClientTest(unittest.TestCase):
         p = self.driver.find_element_by_xpath("//input[@name='repeatlogin']").is_selected()
         if p == True:
 
-            self.driver.find_element_by_xpath("//*[@id='addgroupform']/div/div/div[12]/input[2]").click()
+            self.driver.find_element_by_xpath("//*[@id='addgroupform']/div/div/div[13]/input[2]").click()
         else:
-            self.driver.find_element_by_xpath("//*[@id='addgroupform']/div/div/div[11]/input[2]").click()
+            self.driver.find_element_by_xpath("//*[@id='addgroupform']/div/div/div[12]/input[2]").click()
         time.sleep(1)
         self.addUser()
         time.sleep(2)
 
         #输入用户名、密码等信息
-        self.driver.find_element_by_xpath("//input[@name='username']").send_keys(k)
+        self.driver.find_element_by_xpath("//input[@placeholder='用户名']").send_keys(k)
         time.sleep(1)
-        self.driver.find_element_by_xpath("//*[@id='addgroupform']/div/div/div[2]/input[@name='descript']").send_keys(k)
+        self.driver.find_element_by_xpath("//*[@id='addgroupform']/div/div/div[3]/input[@name='descript']").send_keys(k)
         time.sleep(1)
         self.driver.find_element_by_xpath("//input[@id='password']").send_keys(k)
         time.sleep(1)
-        self.driver.find_element_by_xpath("//*[@id='addgroupform']/div/div/div[4]/input[@name='repassword']").send_keys(k)
+        self.driver.find_element_by_xpath("//*[@id='addgroupform']/div/div/div[5]/input[@name='repassword']").send_keys(k)
         time.sleep(1)
         self.driver.find_element_by_xpath("//input[@name='contact']").send_keys(k)
         time.sleep(2)
@@ -320,15 +327,19 @@ class ClientTest(unittest.TestCase):
                 print("第一次添加用户失败")
         except:
             print('添加用户失败')
-            '''
+
+
+
+
+
+        '''
         s2 = self.driver.find_elements_by_css_selector("tbody>tr")
         l2 = len(s2)
         if l == l2:
             print("第一次添加用户失败")
         else:
             print("第一次添加用户成功")
-        '''
-        '''
+        
         j = self.driver.find_element_by_xpath(
             "//div[@title=1]/../following-sibling::td[1]/div[@class='tdhidden']").get_attribute('title')
         if h == j:
@@ -339,7 +350,8 @@ class ClientTest(unittest.TestCase):
 
 
         #self.driver.find_element_by_xpath("//a[contains(text(),'尾页')]").click()
-        time.sleep(3)
+        self.driver.refresh()
+        time.sleep(2)
         #s3 = self.driver.find_elements_by_css_selector("tbody>tr")
         #l3 = len(s3)
         self.addUser()
@@ -354,13 +366,13 @@ class ClientTest(unittest.TestCase):
         #添加用户时两次密码输入不一致
         self.driver.find_element_by_xpath("//input[@name='repeatlogin']").click()
 
-        self.driver.find_element_by_xpath("//input[@name='username']").send_keys(k + '1')
+        self.driver.find_element_by_xpath("//input[@placeholder='用户名']").send_keys(k + '1')
         time.sleep(1)
-        self.driver.find_element_by_xpath("//*[@id='addgroupform']/div/div/div[2]/input[@name='descript']").send_keys(k + '1')
+        self.driver.find_element_by_xpath("//*[@id='addgroupform']/div/div/div[3]/input[@name='descript']").send_keys(k + '1')
         time.sleep(1)
         self.driver.find_element_by_xpath("//input[@id='password']").send_keys(k + '1')
         time.sleep(1)
-        self.driver.find_element_by_xpath("//*[@id='addgroupform']/div/div/div[4]/input[@name='repassword']").send_keys(k + '2')
+        self.driver.find_element_by_xpath("//*[@id='addgroupform']/div/div/div[5]/input[@name='repassword']").send_keys(k + '2')
         time.sleep(1)
         self.driver.find_element_by_xpath("//input[@name='contact']").send_keys(k + '1')
         time.sleep(2)
@@ -372,9 +384,9 @@ class ClientTest(unittest.TestCase):
             self.driver.find_element_by_xpath("//label[contains(text(),'两次密码输入不一致')]").is_displayed()
         except:
             print("两次密码不一致时没有出现提示")
-        self.driver.find_element_by_xpath("//*[@id='addgroupform']/div/div/div[4]/input[@name='repassword']").clear()
+        self.driver.find_element_by_xpath("//input[@placeholder='确认密码']").clear()
         time.sleep(1)
-        self.driver.find_element_by_xpath("//*[@id='addgroupform']/div/div/div[4]/input[@name='repassword']").send_keys(k + '1')
+        self.driver.find_element_by_xpath("//input[@placeholder='确认密码']").send_keys(k + '1')
         time.sleep(1)
 
         #点击重复登录按钮
@@ -383,19 +395,28 @@ class ClientTest(unittest.TestCase):
         self.judge_repeat_login()
         time.sleep(3)
         #点击保存按钮
-        self.driver.find_element_by_xpath("//*[@id='addgroupform']/div/div/div[11]/input[1]").click()
+        self.driver.find_element_by_xpath("//*[@id='addgroupform']/div/div/div[12]/input[1]").click()
         time.sleep(2)
         self.driver.refresh()
         self.driver.find_element_by_xpath("//a[contains(text(),'尾页')]").click()
         time.sleep(3)
-        r = k + "1']"
-        #查看当前页面是否出现添加的用户：通过xpath路径定位
-        n = self.driver.find_element_by_xpath("//div[@title='" + r).is_displayed()
-        if n == True:
-            print('第二次添加用户成功')
-        else:
-            print("第二次添加用户失败")
-            '''
+        try:
+            z = k + "1"
+            r = z + "']"
+            #查看当前页面是否出现添加的用户：通过xpath路径定位
+            print(110)
+            n = self.driver.find_element_by_xpath("//div[@title='" + r).is_displayed()
+            #n = self.driver.find_element_by_xpath("//div[@title='" + r).is_displayed()
+            print(120)
+            if n == True:
+                print('第二次添加用户成功')
+            else:
+                print("第二次添加用户失败")
+        except:
+            print("检查第二次用户是否添加成功时失败")
+
+
+        '''    
         s4 = self.driver.find_elements_by_css_selector("tbody>tr")
         l4 = len(s4)
         if l3 == l4:
@@ -403,8 +424,8 @@ class ClientTest(unittest.TestCase):
         else:
             print("第二次添加用户成功")
 
-        '''
-        '''
+        
+        
         b = self.driver.find_element_by_xpath(
             "//div[@title=1]/../following-sibling::td[1]/div[@class='tdhidden']").get_attribute('title')
         if b == k + '1':
@@ -433,19 +454,19 @@ class ClientTest(unittest.TestCase):
             #time.sleep(1)
             #清除之前的描述
             self.driver.find_element_by_xpath(
-                "//*[@id='addgroupform']/div/div/div[2]/input[@name='descript']").clear()
+                "//*[@id='addgroupform']/div/div/div[3]/input[@name='descript']").clear()
             time.sleep(1)
             self.driver.find_element_by_xpath(
-                "//*[@id='addgroupform']/div/div/div[2]/input[@name='descript']").send_keys(d)
+                "//*[@id='addgroupform']/div/div/div[3]/input[@name='descript']").send_keys(d)
             time.sleep(1)
             self.driver.find_element_by_xpath("//input[@id='password']").clear()
             time.sleep(1)
             self.driver.find_element_by_xpath("//input[@id='password']").send_keys(d)
             time.sleep(1)
             #确定密码
-            self.driver.find_element_by_xpath("//*[@id='addgroupform']/div/div/div[4]/input[@name='repassword']").clear()
+            self.driver.find_element_by_xpath("//*[@id='addgroupform']/div/div/div[5]/input[@name='repassword']").clear()
             time.sleep(1)
-            self.driver.find_element_by_xpath("//*[@id='addgroupform']/div/div/div[4]/input[@name='repassword']").send_keys(d)
+            self.driver.find_element_by_xpath("//*[@id='addgroupform']/div/div/div[5]/input[@name='repassword']").send_keys(d)
             time.sleep(1)
             #联系人
             self.driver.find_element_by_xpath("//input[@name='contact']").clear()
@@ -466,6 +487,12 @@ class ClientTest(unittest.TestCase):
             time.sleep(1)
             self.editUser()
             time.sleep(1)
+            k = self.driver.find_element_by_xpath("//input[@name='repeatlogin']").is_selected()
+            if k == False:
+                print("第一次编辑成功")
+            else:
+                print("第一次编辑失败")
+
             self.driver.find_element_by_xpath("//input[@name='repeatlogin']").click()
             self.judge_repeat_login()
             time.sleep(1)
@@ -476,11 +503,11 @@ class ClientTest(unittest.TestCase):
 
             #获取密码、描述等信息
             q2 = self.driver.find_element_by_xpath(
-            "//*[@id='addgroupform']/div/div/div[2]/input[@name='descript']").get_attribute('value')
+            "//*[@id='addgroupform']/div/div/div[3]/input[@name='descript']").get_attribute('value')
             time.sleep(1)
             q3 = self.driver.find_element_by_xpath("//input[@id='password']").get_attribute('value')
             time.sleep(1)
-            q4 = self.driver.find_element_by_xpath("//*[@id='addgroupform']/div/div/div[4]/input[@name='repassword']").get_attribute('value')
+            q4 = self.driver.find_element_by_xpath("//*[@id='addgroupform']/div/div/div[5]/input[@name='repassword']").get_attribute('value')
             time.sleep(1)
             q5 = self.driver.find_element_by_xpath("//input[@name='contact']").get_attribute('value')
             time.sleep(1)
@@ -564,7 +591,8 @@ class ClientTest(unittest.TestCase):
         h2 = self.driver.find_element_by_xpath("//input[@id='password']").get_attribute('value')
         #退出编辑
         #self.driver.find_element_by_xpath("//input[@value='保存']").click()
-        self.driver.find_element_by_xpath("//*[@id='addgroupform']/div/div/div[12]/input[2]").click()
+        self.driver.find_element_by_xpath("//*[@id='addgroupform']/div/div/div[13]/input[2]").click()
+        #self.driver.find_element_by_xpath("//input[@value='取消']").click()
         time.sleep(1)
         self.driver.find_element_by_xpath("//a[contains(text(),'退出')]").click()
         time.sleep(1)
