@@ -672,6 +672,7 @@ class ClientTest(unittest.TestCase):
         # k.tap_key(k.tab_key)
         time.sleep(2)
         # k.tap_key(k.enter_key)
+        '''
         k.tap_key(k.tab_key)
         time.sleep(1)
         k.tap_key(k.tab_key)
@@ -683,6 +684,7 @@ class ClientTest(unittest.TestCase):
         k.tap_key(k.tab_key)
         time.sleep(1)
         k.tap_key(k.enter_key)
+        '''
         time.sleep(5)
         path = r"C:\Users\lz\Downloads\GNWayESLMACClient.zip"
 
@@ -798,17 +800,23 @@ class ClientTest(unittest.TestCase):
 
         #使用旧密码登录
         Login().login(self.driver,h,h2)
-        time.sleep(1)
+        time.sleep(2)
         url3 = self.driver.current_url
-        try:
+        #try:
             #查看使用旧密码是否出现提示
-            self.driver.find_element_by_xpath("//*[@id='ee']").is_displayed()
-            time.sleep(2)
-        except:
-            if url2 == url3:
-                print('修改密码后用旧密码登录没有出现提示')
-            elif url1 == url3:
-                print('修改密码后用旧密码登录成功')
+        y = self.driver.find_element_by_xpath("//*[@id='ee']").is_displayed()
+        time.sleep(2)
+        if y == True:
+            print("旧密码登录出现提示")
+        else:
+            print("旧密码登录不成功")
+        #except:
+         #   pass
+        #else:
+        if url2 == url3:
+            print('修改密码后用旧密码登录失败')
+        else:
+            print('修改密码后用旧密码登录成功')
 
         #使用新密码登录
         Login().login(self.driver,h,h3)
