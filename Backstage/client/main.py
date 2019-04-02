@@ -334,13 +334,19 @@ class ClientTest(unittest.TestCase):
         #再次点击确定，查看是否添加成功
         self.driver.find_element_by_xpath("//input[@value='确定']").click()
         time.sleep(3)
-        date2 = self.driver.find_element_by_xpath("//table/*/tr/td/div/input[@value='12879']/../../following-sibling::td[8]/div[@class='tdhidden']").get_attribute("title")
-        d3 = datetime.datetime.strptime(date2, '%Y-%m-%d')
-        m = round((d3 - d1).days/30)
-        if  m == 1:
-            print("增加时间成功")
+
+        try:
+            self.driver.find_element_by_xpath("//div[contains(text(),'扣费失败!原因:操作太频繁，请3分钟之后再试')]").is_displayed()
+        except:
+            date2 = self.driver.find_element_by_xpath("//table/*/tr/td/div/input[@value='12879']/../../following-sibling::td[8]/div[@class='tdhidden']").get_attribute("title")
+            d3 = datetime.datetime.strptime(date2, '%Y-%m-%d')
+            m = round((d3 - d1).days/30)
+            if  m == 1:
+                print("增加时间成功")
+            else:
+                print("增加时间失败")
         else:
-            print("增加时间失败")
+            print("扣费失败!原因:操作太频繁，请3分钟之后再试")
     def test_5_editUser(self):
         print('---------------------------编辑用户和对比详情------------------------------')
         global i
@@ -381,7 +387,7 @@ class ClientTest(unittest.TestCase):
             if t == "请检查该域名是否拼写错误testzzl01.yun.gnway.comp":
                 print("出现提示：请检查该域名是否拼写错误testzzl01.yun.gnway.comp")
             else:
-                return 0
+                pass
         except:
             print("没有出现提示：请检查该域名是否拼写错误testzzl01.yun.gnway.comp")
 
