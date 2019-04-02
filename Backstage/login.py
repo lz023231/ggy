@@ -6,21 +6,25 @@ class LoginCase(unittest.TestCase):
     def SetUp(self):
         self.driver=webdriver.Chrome()
         self.driver.maximize_window()
+        self.driver.implicitly_wait(10)
+        self.driver.get("https://yun.gnway.com/admin")
 
-    def Login(self,username,password):
-        self.driver.get("http://yun.gnway.com/admin")
-        self.driver.find_element_by_name('username').clear()
-        self.driver.find_element_by_name('username').send_keys(username)
-        self.driver.find_element_by_name('username').send_keys(Keys.TAB)
-        self.driver.find_element_by_name('password').clear()
-        self.driver.find_element_by_name('password').send_keys(password)
-        self.driver.find_element_by_xpath('//div[contains(text(),"登 录")]').click()
+    def login(self, driver, username,password):
+        driver.get("http://yun.gnway.com/admin")
+        driver.find_element_by_name('username').clear()
+        driver.find_element_by_name('username').send_keys(username)
+        driver.find_element_by_name('username').send_keys(Keys.TAB)
+        driver.find_element_by_name('password').clear()
+        driver.find_element_by_name('password').send_keys(password)
+        driver.find_element_by_xpath('//div[contains(text(),"登 录")]').click()
 
     def test_login_success(self):
-        self.Login('hdlagent','GNway123456')
-
+        username = "hdlagent"
+        password = "GNway123456"
+        #self.login(self.driver,username,password)
+        print('dfs')
     def test_login_pwd_error(self):
-        self.Login('hdlagent','123456')
+        self.login(self.driver,'hdlagent','123456')
         self.driver.find_element_by_name('username').clear()
         self.driver.find_element_by_name('password').clear()
 
