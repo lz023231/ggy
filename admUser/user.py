@@ -1,6 +1,6 @@
 from Backstage.Login.gyyLogin import *
 import time
-import datetime
+import datetime ,sys
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
@@ -309,130 +309,157 @@ class ClientTest(unittest.TestCase):
         self.judge_repeat_login()
         self.driver.find_element_by_xpath("//input[@value='保存']").click()
         time.sleep(1)
-        self.driver.refresh()
-        time.sleep(2)
-
-        self.driver.find_element_by_xpath("//a[contains(text(),'尾页')]").click()
-        time.sleep(3)
-        #m1 = '{}{}{}'.format("//div[@title='", k, "']")
-        #查看当前页面是否有添加的用户
         try:
-            r1 = k + "']"
-            n1 = self.driver.find_element_by_xpath("//div[@title='" + r1).is_displayed()
-            #h =
-            print(n1)
-            if n1 == True:
-                print('第一次添加用户成功')
+            self.driver.find_element_by_xpath("//div[contains(text(),'创建系统账号错误')]").is_displayed()
+            #if l == True:
+            #print("创建用户时出现错误：‘创建系统账号失败’")
+
+
+        except:
+            print("第一次正常")
+
+            self.driver.refresh()
+            time.sleep(2)
+
+
+            self.driver.find_element_by_xpath("//a[contains(text(),'尾页')]").click()
+            time.sleep(3)
+            #m1 = '{}{}{}'.format("//div[@title='", k, "']")
+            #查看当前页面是否有添加的用户
+            try:
+                r1 = k + "']"
+                n1 = self.driver.find_element_by_xpath("//div[@title='" + r1).is_displayed()
+                #h =
+                print(n1)
+                if n1 == True:
+                    print('第一次添加用户成功')
+                else:
+                    print("第一次添加用户失败")
+            except:
+                print('添加用户失败')
+
+
+
+
+
+            '''
+            s2 = self.driver.find_elements_by_css_selector("tbody>tr")
+            l2 = len(s2)
+            if l == l2:
+                print("第一次添加用户失败")
+            else:
+                print("第一次添加用户成功")
+            
+            j = self.driver.find_element_by_xpath(
+                "//div[@title=1]/../following-sibling::td[1]/div[@class='tdhidden']").get_attribute('title')
+            if h == j:
+                print("第一次添加用户成功")
             else:
                 print("第一次添加用户失败")
-        except:
-            print('添加用户失败')
+            '''
 
 
+            #self.driver.find_element_by_xpath("//a[contains(text(),'尾页')]").click()
+            self.driver.refresh()
+            time.sleep(2)
+            #s3 = self.driver.find_elements_by_css_selector("tbody>tr")
+            #l3 = len(s3)
+            self.addUser()
+            time.sleep(2)
 
+            #查看是否出现二级菜单
+            try:
+                self.driver.find_element_by_xpath("//input[@value='保存']").is_displayed()
+            except:
+                print("添加用户没有出现二级菜单")
 
+            #添加用户时两次密码输入不一致
+            self.driver.find_element_by_xpath("//input[@name='repeatlogin']").click()
 
-        '''
-        s2 = self.driver.find_elements_by_css_selector("tbody>tr")
-        l2 = len(s2)
-        if l == l2:
-            print("第一次添加用户失败")
-        else:
-            print("第一次添加用户成功")
-        
-        j = self.driver.find_element_by_xpath(
-            "//div[@title=1]/../following-sibling::td[1]/div[@class='tdhidden']").get_attribute('title')
-        if h == j:
-            print("第一次添加用户成功")
-        else:
-            print("第一次添加用户失败")
-        '''
+            self.driver.find_element_by_xpath("//input[@placeholder='用户名']").send_keys(k + '1')
+            time.sleep(1)
+            self.driver.find_element_by_xpath("//*[@id='addgroupform']/div/div/div[3]/input[@name='descript']").send_keys(k + '1')
+            time.sleep(1)
+            self.driver.find_element_by_xpath("//input[@id='password']").send_keys(k + '1')
+            time.sleep(1)
+            self.driver.find_element_by_xpath("//*[@id='addgroupform']/div/div/div[5]/input[@name='repassword']").send_keys(k + '2')
+            time.sleep(1)
+            self.driver.find_element_by_xpath("//input[@name='contact']").send_keys(k + '1')
+            time.sleep(2)
+            #self.judge_repeat_login()
+            #self.driver.find_element_by_xpath("//input[value='保存']").click()
+            #print("-------------")
+            time.sleep(2)
+            try:
+                self.driver.find_element_by_xpath("//label[contains(text(),'两次密码输入不一致')]").is_displayed()
+            except:
+                print("两次密码不一致时没有出现提示")
+            self.driver.find_element_by_xpath("//input[@placeholder='确认密码']").clear()
+            time.sleep(1)
+            self.driver.find_element_by_xpath("//input[@placeholder='确认密码']").send_keys(k + '1')
+            time.sleep(1)
 
+            #点击重复登录按钮
+            #self.driver.find_element_by_xpath("//input[@name='repeatlogin']").click()
+            time.sleep(3)
+            self.judge_repeat_login()
+            time.sleep(3)
+            #点击保存按钮
+            self.driver.find_element_by_xpath("//*[@id='addgroupform']/div/div/div[12]/input[1]").click()
+            time.sleep(2)
+            try:
 
-        #self.driver.find_element_by_xpath("//a[contains(text(),'尾页')]").click()
-        self.driver.refresh()
-        time.sleep(2)
-        #s3 = self.driver.find_elements_by_css_selector("tbody>tr")
-        #l3 = len(s3)
-        self.addUser()
-        time.sleep(2)
+                self.driver.find_element_by_xpath("//div[contains(text(),'创建系统账号错误')]").is_displayed()
+                #if l1 == True:
+                #print("创建用户时出现错误：‘创建系统账号失败’")
+                #os._exit()
+                #exit()
 
-        #查看是否出现二级菜单
-        try:
-            self.driver.find_element_by_xpath("//input[@value='保存']").is_displayed()
-        except:
-            print("添加用户没有出现二级菜单")
+            except:
+                print("第二次正常")
 
-        #添加用户时两次密码输入不一致
-        self.driver.find_element_by_xpath("//input[@name='repeatlogin']").click()
-
-        self.driver.find_element_by_xpath("//input[@placeholder='用户名']").send_keys(k + '1')
-        time.sleep(1)
-        self.driver.find_element_by_xpath("//*[@id='addgroupform']/div/div/div[3]/input[@name='descript']").send_keys(k + '1')
-        time.sleep(1)
-        self.driver.find_element_by_xpath("//input[@id='password']").send_keys(k + '1')
-        time.sleep(1)
-        self.driver.find_element_by_xpath("//*[@id='addgroupform']/div/div/div[5]/input[@name='repassword']").send_keys(k + '2')
-        time.sleep(1)
-        self.driver.find_element_by_xpath("//input[@name='contact']").send_keys(k + '1')
-        time.sleep(2)
-        #self.judge_repeat_login()
-        #self.driver.find_element_by_xpath("//input[value='保存']").click()
-        #print("-------------")
-        time.sleep(2)
-        try:
-            self.driver.find_element_by_xpath("//label[contains(text(),'两次密码输入不一致')]").is_displayed()
-        except:
-            print("两次密码不一致时没有出现提示")
-        self.driver.find_element_by_xpath("//input[@placeholder='确认密码']").clear()
-        time.sleep(1)
-        self.driver.find_element_by_xpath("//input[@placeholder='确认密码']").send_keys(k + '1')
-        time.sleep(1)
-
-        #点击重复登录按钮
-        #self.driver.find_element_by_xpath("//input[@name='repeatlogin']").click()
-        time.sleep(3)
-        self.judge_repeat_login()
-        time.sleep(3)
-        #点击保存按钮
-        self.driver.find_element_by_xpath("//*[@id='addgroupform']/div/div/div[12]/input[1]").click()
-        time.sleep(2)
-        self.driver.refresh()
-        self.driver.find_element_by_xpath("//a[contains(text(),'尾页')]").click()
-        time.sleep(3)
-        try:
-            z = k + "1"
-            r = z + "']"
-            #查看当前页面是否出现添加的用户：通过xpath路径定位
-            print(110)
-            n = self.driver.find_element_by_xpath("//div[@title='" + r).is_displayed()
-            #n = self.driver.find_element_by_xpath("//div[@title='" + r).is_displayed()
-            print(120)
-            if n == True:
-                print('第二次添加用户成功')
+                self.driver.refresh()
+                self.driver.find_element_by_xpath("//a[contains(text(),'尾页')]").click()
+                time.sleep(3)
+                try:
+                    z = k + "1"
+                    r = z + "']"
+                    #查看当前页面是否出现添加的用户：通过xpath路径定位
+                    print(110)
+                    n = self.driver.find_element_by_xpath("//div[@title='" + r).is_displayed()
+                    #n = self.driver.find_element_by_xpath("//div[@title='" + r).is_displayed()
+                    print(120)
+                    if n == True:
+                        print('第二次添加用户成功')
+                    else:
+                        print("第二次添加用户失败")
+                except:
+                    print("检查第二次用户是否添加成功时失败")
             else:
-                print("第二次添加用户失败")
-        except:
-            print("检查第二次用户是否添加成功时失败")
+                print("第二次出现错误提示")
 
-
-        '''    
-        s4 = self.driver.find_elements_by_css_selector("tbody>tr")
-        l4 = len(s4)
-        if l3 == l4:
-            print("第二次添加用户失败")
         else:
-            print("第二次添加用户成功")
+            print("第一次出现错误提示")
 
+
+
+            '''    
+                s4 = self.driver.find_elements_by_css_selector("tbody>tr")
+                l4 = len(s4)
+                if l3 == l4:
+                    print("第二次添加用户失败")
+                else:
+                    print("第二次添加用户成功")
         
-        
-        b = self.driver.find_element_by_xpath(
-            "//div[@title=1]/../following-sibling::td[1]/div[@class='tdhidden']").get_attribute('title')
-        if b == k + '1':
-            print("第二次添加用户成功")
-        else:
-            print("第二次添加用户失败")
-        '''
+                
+                
+                b = self.driver.find_element_by_xpath(
+                    "//div[@title=1]/../following-sibling::td[1]/div[@class='tdhidden']").get_attribute('title')
+                if b == k + '1':
+                    print("第二次添加用户成功")
+                else:
+                    print("第二次添加用户失败")
+                '''
 
 
 

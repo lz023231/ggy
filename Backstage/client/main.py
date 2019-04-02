@@ -1,4 +1,4 @@
-import datetime
+import datetime ,sys
 from Backstage.Login.gyyLogin import *
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
@@ -139,7 +139,7 @@ class ClientTest(unittest.TestCase):
         time.sleep(2)
         #self.driver.find_element_by_xpath("//a[contains(text(),'发布应用')]").click()
         #查看cmd应用是否被选中
-        t = self.driver.find_element_by_xpath("//input[@value='4']").is_selected()
+        t = self.driver.find_element_by_xpath("//input[@value='2']").is_selected()
         print("ew")
         print(t)
         #确认cmd处于没被选中状态
@@ -161,12 +161,16 @@ class ClientTest(unittest.TestCase):
                 print("应用为未点击状态")
 
          #点击取消按钮，查看应用是否被发布
+        p = self.driver.find_element_by_xpath("//input[@value='2']").is_selected()
+        if  p == True:
+            print("不能取消发布应用")
+            sys.exit(1)
         self.driver.find_element_by_xpath("//label[contains(text(),'cmd')]").click()
         time.sleep(2)
         self.driver.find_element_by_xpath("//input[@value='取消']").click()
         time.sleep(2)
         self.pubApp()
-        h = self.driver.find_element_by_xpath("//input[@value='4']").is_selected()
+        h = self.driver.find_element_by_xpath("//input[@value='2']").is_selected()
         if h == True:
             print("点击取消，应用依然被发布")
         else:
@@ -182,7 +186,7 @@ class ClientTest(unittest.TestCase):
         time.sleep(2)
         self.pubApp()
         time.sleep(2)
-        e = self.driver.find_element_by_xpath("//input[@value='4']").is_selected()
+        e = self.driver.find_element_by_xpath("//input[@value='2']").is_selected()
         print("---")
         print(e)
         if e == False:
