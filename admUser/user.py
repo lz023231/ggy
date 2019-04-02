@@ -154,7 +154,7 @@ class ClientTest(unittest.TestCase):
             a = self.driver.find_element_by_xpath('//*[@id="dialog-confirm"]/p').text
             print(a)
             if a == "这些数据将被永久删除,并且无法恢复.您确定吗?":
-                print("dsdfsdf")
+                print("删除时出现提示")
             else:
                 print("删除时没有出现提示")
             #点击取消按钮
@@ -190,7 +190,7 @@ class ClientTest(unittest.TestCase):
             b = self.driver.find_element_by_xpath('//*[@id="dialog-confirm"]/p').text
             print(b)
             if b == "这些数据将被永久删除,并且无法恢复.您确定吗?":
-                print("出现提示")
+                print("删除时出现提示")
             else:
                 print("删除时没有出现提示")
 
@@ -273,12 +273,12 @@ class ClientTest(unittest.TestCase):
             self.driver.find_element_by_xpath("//*[@id='addgroupform']/div/div/div[5]/input[@name='repassword']").send_keys(h)
             time.sleep(1)
             self.driver.find_element_by_xpath("//input[@value='保存']").click()
-            time.sleep(1)
+            time.sleep(2)
             p =self.driver.find_element_by_xpath("//div[contains(text(),'用户名重复')]").is_displayed()
             if p == True:
                 print("添加已有用户名时出现提示")
             else:
-                return
+                pass
         except:
             print("添加已有用户名时没有出现提示")
 
@@ -397,7 +397,6 @@ class ClientTest(unittest.TestCase):
             self.driver.find_element_by_xpath("//input[@placeholder='确认密码']").clear()
             time.sleep(1)
             self.driver.find_element_by_xpath("//input[@placeholder='确认密码']").send_keys(k + '1')
-            time.sleep(1)
 
             #点击重复登录按钮
             #self.driver.find_element_by_xpath("//input[@name='repeatlogin']").click()
@@ -425,10 +424,8 @@ class ClientTest(unittest.TestCase):
                     z = k + "1"
                     r = z + "']"
                     #查看当前页面是否出现添加的用户：通过xpath路径定位
-                    print(110)
                     n = self.driver.find_element_by_xpath("//div[@title='" + r).is_displayed()
                     #n = self.driver.find_element_by_xpath("//div[@title='" + r).is_displayed()
-                    print(120)
                     if n == True:
                         print('第二次添加用户成功')
                     else:
