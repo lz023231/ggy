@@ -1,5 +1,6 @@
 import os
 
+
 from pathlib import Path
 path ="C:\\12.txt"
 e = os.path.exists(path)
