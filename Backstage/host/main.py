@@ -6,6 +6,7 @@ import time
 import unittest
 from Backstage.Login.gyyLogin import *
 from selenium import webdriver
+import HTMLTestRunnerCN
 
 '''
 修改管理员密码的功能计划和管理员登录一起
@@ -17,7 +18,7 @@ class ClientTest(unittest.TestCase):
         self.driver = webdriver.Chrome()
         self.driver.maximize_window()
         self.driver.implicitly_wait(10)
-        self.driver.get("https://yun.gnway.com/admin")
+        self.driver.get("http://yun.gnway.com/admin")
         username = 'hdlagent'
         password = 'GNway123456'
         time.sleep(3)
@@ -214,4 +215,13 @@ class ClientTest(unittest.TestCase):
 
 
 if __name__ == '__main__':
-    unittest.main()
+    #unittest.main()
+    suite = unittest.TestSuite()
+    test_case = [ClientTest("test_1_addCus"),ClientTest("test_2_editHost")]
+    suite.addTests(test_case)
+    now = time.strftime("%Y-%m-%d %H_%M_%S")
+    filePath = "./report/" + now + 'restut.html'
+    fp = open(filePath, "wb")
+    runner = HTMLTestRunnerCN.HTMLTestReportCN(stream=fp, title="公有云管理后台主机测试报告", description="测试结果：")
+    runner.run(suite)
+    fp.close()
