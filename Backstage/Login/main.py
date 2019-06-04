@@ -3,6 +3,7 @@ import unittest
 from selenium import webdriver
 import time
 import HTMLTestRunnerCN
+import sendMail
 
 
 class LoginTest(unittest.TestCase):
@@ -74,6 +75,8 @@ class LoginTest(unittest.TestCase):
 
 if __name__ == '__main__':
     # unittest.main()
+    '''
+    当测试用例比较多的时候，这种方式会比较繁琐，会一直加用例，discover的方式只需要标明目录和正则就可以了
     suite = unittest.TestSuite()
     test_suite = [LoginTest("test_1_login_pwd_error"), LoginTest("test_2_login_pwd_null"),
                   LoginTest("test_3_login_user_error"), LoginTest("test_4_login_user_null"),
@@ -82,6 +85,22 @@ if __name__ == '__main__':
     now = time.strftime("%Y-%m-%d %H_%M_%S")
     filePath = "./report/" + now + 'restut.html'
     fp = open(filePath, 'wb')
-    runner = HTMLTestRunnerCN.HTMLTestReportCN(stream=fp, title=u'公有云测试报告', description=u'测试用例结果')
+    runner = HTMLTestRunnerCN.HTMLTestReportCN(stream=fp, title=u'公有云测试报告', description=u'测试用例结果', tester="赵泽雷")
     runner.run(suite)
     fp.close()
+    '''
+    # 使用discover的方式
+    # 定义当前目录
+    test_dir = "./"
+
+    # 定义discover，start_str为需要测试的目录，pattern为正则表达式，也可以为具体文件
+    discover = unittest.defaultTestLoader.discover(start_dir=test_dir, pattern='main.py')
+    now = time.strftime("%Y-%m-%d %H_%M_%S")
+    filePath = "./report/" + now + 'restut.html'
+    n = now + 'result.html'
+    fp = open(filePath, 'wb')
+    runner = HTMLTestRunnerCN.HTMLTestReportCN(stream=fp, title=u'公有云测试报告', description=u'测试用例结果', tester="赵泽雷")
+    runner.run(discover)
+    # 关闭文件
+    fp.close()
+    sendMail.sendMail(filePath, n)
