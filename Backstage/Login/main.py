@@ -4,7 +4,7 @@ from selenium import webdriver
 import time
 import HTMLTestRunnerCN
 import sendMail
-
+import run
 
 class LoginTest(unittest.TestCase):
 
@@ -88,7 +88,9 @@ if __name__ == '__main__':
     runner = HTMLTestRunnerCN.HTMLTestReportCN(stream=fp, title=u'公有云测试报告', description=u'测试用例结果', tester="赵泽雷")
     runner.run(suite)
     fp.close()
-    '''
+    
+    
+    
     # 使用discover的方式
     # 定义当前目录
     test_dir = "./"
@@ -96,7 +98,7 @@ if __name__ == '__main__':
     # 定义discover，start_str为需要测试的目录，pattern为正则表达式，也可以为具体文件
     discover = unittest.defaultTestLoader.discover(start_dir=test_dir, pattern='main.py')
     now = time.strftime("%Y-%m-%d %H_%M_%S")
-    filePath = "./report/" + now + 'restut.html'
+    filePath = "./report/" + now + 'result.html'
     n = now + 'result.html'
     fp = open(filePath, 'wb')
     runner = HTMLTestRunnerCN.HTMLTestReportCN(stream=fp, title=u'公有云测试报告', description=u'测试用例结果', tester="赵泽雷")
@@ -104,3 +106,5 @@ if __name__ == '__main__':
     # 关闭文件
     fp.close()
     sendMail.sendMail(filePath, n)
+    '''
+    run.runer(basedir="./", parrten="main.py")
