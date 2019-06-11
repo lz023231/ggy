@@ -7,7 +7,7 @@ class LoginCase(unittest.TestCase):
         self.driver=webdriver.Chrome()
         self.driver.maximize_window()
         self.driver.implicitly_wait(10)
-        self.driver.get("https://yun.gnway.com/admin")
+        self.driver.get("http://yun.gnway.com/admin")
 
     def login(self, driver, username,password):
         driver.get("http://yun.gnway.com/admin")
