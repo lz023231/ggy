@@ -14,7 +14,7 @@ def postgyytoken():
     #headers = {'Content-Type':'application/json; charset=UTF-8',}
     r = requests.post(url=url,data =data)
     x = r.text
-    print(x)
+    print("x:" + x)
     z = x[2:14]
     
     #if z != "access_token" :
@@ -413,8 +413,10 @@ if __name__=="__main__":
   #  getgyymgzj("959")
    # getgyymgyh("12327")
     #(4.3、获取主机列表)获取获取主机列表成功
+    postgyytoken()
+    print('------------')
     getgyyzj()
-
+    print('------------------')
 #(4.4、获取某个主机下的客户列表)获取某个主机下的用户列表成功(hostid)
     getgyymgzj("959")
 

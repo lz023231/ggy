@@ -2,8 +2,8 @@
 
 import sys
 import os
-reload(sys)
-sys.setdefaultencoding("utf-8")
+import importlib
+importlib.reload(sys)
 import requests
 import json
 from datetime import datetime as dt
@@ -16,7 +16,7 @@ from nose.tools import *
 
 def send_mail():
     # 读取测试报告内容
-    with open(report_file, 'r') as f:
+    with open(report_file, 'rb') as f:
         content = f.read().decode('utf-8')
 
     msg = MIMEMultipart('mixed')
@@ -42,7 +42,7 @@ def send_mail():
         # 退出
         s.quit()
     except Exception as e:
-        print "Exceptioin ", e
+        print ("Exceptioin ", e)
 
 
 class check_response():
@@ -101,8 +101,8 @@ class test_doubanSearch(object):
     def search(params, expectNum=None):
         url = 'https://api.douban.com/v2/movie/search'
         r = requests.get(url, params=params)
-        print 'Search Params:\n', json.dumps(params, ensure_ascii=False)
-        print 'Search Response:\n', json.dumps(r.json(), ensure_ascii=False, indent=4)
+        print ('Search Params:\n'), json.dumps(params, ensure_ascii=False)
+        print ('Search Response:\n'), json.dumps(r.json(), ensure_ascii=False, indent=4)
         code = r.json().get('code')
         if code > 0:
             assert False, 'Invoke Error.Code:\t{0}'.format(code)
@@ -209,20 +209,21 @@ if __name__ == '__main__':
     # 邮件服务器
     mail_host = 'smtp.163.com'
     # 发件人地址
-    mail_user = 'xxx@163.com'
+    mail_user = '15227001093@163.com'
     # 发件人密码
-    mail_pwd = 'xxx'
+    mail_pwd = 'zhao023231'
     # 邮件标题
     mail_subjet = u'NoseTests_测试报告_{0}'.format(dt.now().strftime('%Y%m%d'))
     # 收件人地址list
-    mail_to = ['xxx@126.com', 'xxx@126.com']
+    mail_to = ['1449775115@qq.com', 'zhaozz7901@gmail.com']
     # 测试报告名称
-    report_file = 'TestReport.html'
+    report_file = r'C:\Users\lz\Desktop\github\ggy\Backstage\host\report\2019-06-03 17_54_51restut.html'
+
 
     # 运行nosetests进行自动化测试并生成测试报告
-    print 'Run Nosetests Now...'
+    print ('Run Nosetests Now...')
     os.system('nosetests -v {0} --with-html --html-file={1}'.format(__file__, report_file))
 
     # 发送测试报告邮件
-    print 'Send Test Report Mail Now...'
+    print ('Send Test Report Mail Now...')
     send_mail()
