@@ -1,30 +1,22 @@
 #!/usr/bin/env python
 #coding:utf-8
+import random
+import string
 import requests
-
+import gettime
+import time
 success = 0
 failed = 0
 gyyuser = "hdlagent"
 gyypassword = "GNway123456"
 
-#获取token值
 def postgyytoken():
     url = "http://yun.gnway.com/gnapi/adminuser/login"
     data ={"username": gyyuser,"password": gyypassword}
-    #headers = {'Content-Type':'application/json; charset=UTF-8',}
     r = requests.post(url=url,data =data)
     x = r.text
-    print("x:" + x)
     z = x[2:14]
-    
-    #if z != "access_token" :
-     #    print u'用户名或密码错误'
-    #else :
-     #   print u'用户名密码正确'
-    
     return x[17:-2]
-    
-
 #获取所有主机列表信息(4.3、获取主机列表)       
 def getgyyzj():
     token = postgyytoken()
@@ -33,19 +25,17 @@ def getgyyzj():
     r=requests.get("http://yun.gnway.com/gnapi/hosts?access-token="+ token)
     s = r.status_code
     z = r.text
-    print("z:" + z)
     g = z[15:17]
     
     if g =="00":
-        print (g)
+        print g
         global success
         success += 1
     else:
-        print ("getgyyzj:01")
+        print "getgyyzj:01"
         global failed
-        failed += 1		
-    
-    
+        failed += 1
+    return
     
 #获取某个主机下的用户列表(4.4、获取某个主机下的客户列表)
 def getgyymgzj(hostid):
@@ -58,14 +48,33 @@ def getgyymgzj(hostid):
     z = r.text
     g = z[15:17]
     if g =="00":
-        print (g)
+        print g
         global success
         success += 1
     else:
-        print ("getgyymgzj:01")
+        print "getgyymgzj:01"
         global failed
         failed += 1
-        
+    return
+#新建公司(5.1)
+def postgyycustomid(hostid, domain, descript , username , password , contact , email , remark):
+    token = postgyytoken()
+    url = "http://yun.gnway.com/gnapi/customs?access-token="+ token
+    data ={"hostid": hostid , "domain":domain ,"descript": descript ,"username":username , "password": password ,"contact": contact ,"email": email ,"remark": remark}
+    r = requests.post(url=url,data =data)
+    z = r.text
+    
+    g = z[15:17]
+    if g =="00":
+        print g
+        global success
+        success += 1
+    else:
+        print "postgyycustomid:01"
+        global failed
+        failed += 1
+    return z[-6:-1]
+
 #获取所有客户信息(5.2、获取所有客户信息)
 def getgyykh():
     
@@ -79,13 +88,14 @@ def getgyykh():
 
     if g =="00":
             
-        print (g)
+        print g
         global success
         success += 1
     else:
-        print ("getgyykh:01")
+        print "getgyykh:01"
         global failed
         failed += 1
+    return
 
 #获取某个用户信息 (5.3、获取单个客户信息) 
 def getgyymgyh(customid):
@@ -98,35 +108,38 @@ def getgyymgyh(customid):
     z = r.text
     g = z[15:17]
     if g =="00":
-        print (g)
+        print g
         global success
         success += 1
     else:
-        print ("getgyymgyh:01")
+        print "getgyymgyh:01"
         global failed
         failed += 1
+    return
+
+
 
 #5.4、修改客户
-def gyyEditcustoms(hostid, domain, descript , username , password , contact , email , remark):
+def gyyEditcustoms(customid ,hostid, domain, descript , username , password , contact , email , remark):
 
     token = postgyytoken()
-    url = "http://yun.gnway.com/gnapi/customs/12879?access-token="+ token
+    url = "http://yun.gnway.com/gnapi/customs/"+customid+"?access-token="+ token
     data ={"hostid": hostid , "domain":domain ,"descript": descript ,"username":username , "password": password ,"contact": contact ,"email": email ,"remark": remark}
     #headers = {'Content-Type':'application/json; charset=UTF-8',}
-    print ({"hostid": hostid , "domain":domain ,"descript": descript ,"username":username , "password": password ,"contact": contact ,"email": email ,"remark": remark})
     r = requests.put(url=url,data =data)
     s = r.status_code
     z = r.text
     g = z[15:17]
+    
     if g =="00":
-        print (g)
+        print g
         global success
         success += 1
     else:
-        print ("gyyEditcustoms:01")
+        print "gyyEditcustoms:01"
         global failed
         failed += 1
-        
+    return        
 #获取某个客户允许用户数(5.5、获取当前客户允许用户数)
 def getgyymgyhs(customid):
     
@@ -137,15 +150,17 @@ def getgyymgyhs(customid):
     s = r.status_code
     z = r.text
     g = z[15:17]
-    if g =="00":
-        print (g)
-        global success
-        success += 1
-    else:
-        print ("getgyymgyhs:01")
-        global failed
-        failed += 1
-
+    if z[-3:-2]=="1":
+        
+        if g =="00":
+            print g
+            global success
+            success += 1
+        else:
+            print "getgyymgyhs:01"
+            global failed
+            failed += 1
+    return
 #5.6、修改用户数（增加）
 def postgyyaddusers(zjid, gsid , yhs):
     token = postgyytoken()
@@ -158,14 +173,14 @@ def postgyyaddusers(zjid, gsid , yhs):
     g = z[15:17]
     if g =="00":
         
-        print (g)
+        print g
         global success
         success += 1
     else:
-        print ("postgyyaddusers:01")
+        print "postgyyaddusers:01"
         global failed
         failed += 1
-
+    return
 #5.7、修改用户数（减少）
 def postgyysubusers(zjid, gsid , yhs):
     token = postgyytoken()
@@ -178,13 +193,14 @@ def postgyysubusers(zjid, gsid , yhs):
     g = z[15:17]
     
     if g =="00":
-        print (g)
+        print g
         global success
         success += 1
     else:
-        print ("postgyysubusers:01")
+        print "postgyysubusers:01"
         global failed
         failed += 1
+    return
 
 #获取某个客户允许用户到期时间(5.8、获取当前客户到期时间)
 def getgyymgyhdqsj(customid):
@@ -196,15 +212,20 @@ def getgyymgyhdqsj(customid):
     s = r.status_code
     z = r.text
     g = z[15:17]
-    if g =="00":
-        print (g)
-        global success
-        success += 1
-    else:
-        print ("getgyymgyhdqsj:01")
-        global failed
-        failed += 1
-            
+    sj = z[-12:-2]
+    dqsj = gettime.get_lastday_month(1)
+    
+    if sj == dqsj :
+        
+        if g =="00":
+            print g
+            global success
+            success += 1
+        else:
+            print "postgyyaddtime:01"
+            global failed
+            failed += 1
+    return
 #5.9、添加时长（月）
 def postgyyaddtime(zjid, gsid , jssj):
     token = postgyytoken()
@@ -216,17 +237,16 @@ def postgyyaddtime(zjid, gsid , jssj):
     z = r.text
     #print z
     g = z[15:17]
-    
+    y = z[-13:-3]
     if g =="00":
-        print (g)
+        print g
         global success
         success += 1
     else:
-        print ("postgyyaddtime:01")
+        print "postgyyaddtime:01"
         global failed
         failed += 1
-            
-    
+    return
 #5.10、用户退订
 def postgyyorder(customid):
     token = postgyytoken()
@@ -236,14 +256,14 @@ def postgyyorder(customid):
     g = z[15:17]
     
     if g =="00":
-        print (g)
+        print g
         global success
         success += 1
     else:
-        print ("postgyyorder:01")
+        print "postgyyorder:01"
         global failed
         failed += 1
-              
+    return
 
 
 #获取发布应用信息(6.1、获取应用详细信息)
@@ -257,14 +277,14 @@ def getgyyyyxx(customid):
     z = r.text
     g = z[15:17]
     if g =="00":
-        print (g)
+        print g
         global success
         success += 1
     else:
-        print ("getgyyyyxx:01")
+        print "getgyyyyxx:01"
         global failed
         failed += 1
-            
+    return 
 #7.1、新建用户
 def postgyyaddgroupuser(customid, username, descript , password , repassword , contact , email , maxloginnum , remark , repeatlogin , is_modify_passwd):
     token = postgyytoken()
@@ -275,98 +295,145 @@ def postgyyaddgroupuser(customid, username, descript , password , repassword , c
     s = r.status_code
     z = r.text
     d = z[-7:-2]
-    print (d)
     g = z[15:17]
     
     if g =="00":
-        print (g)
         global success
         success += 1
     else:
-        print ("postgyyaddgroupuser:01")
+        print "postgyyaddgroupuser:01"
         global failed
         failed += 1
+        
+    return d
 
 #7.2、获取本伙伴下所有用户
-def getgyyuser():
+def GetGyyAllusers():
     
     token = postgyytoken()
-    #print token
-    #print ("http://yun.gnway.com/gnapi/custombyhost/"+hostid+"?access-token="+ token)
     r=requests.get("http://yun.gnway.com/gnapi/groupuser?access-token="+ token)
     s = r.status_code
     z = r.text
     g = z[15:17]
     if g =="00":
-        print (g)
+        print g
         global success
         success += 1
     else:
-        print ("getgyyuser:01")
+        print "getgyyuser:01"
         global failed
         failed += 1
+    return
 
 
 #7.3、本伙伴单个用户信息
 def getgyyuser_random(id):
     
     token = postgyytoken()
-    
-    
     r=requests.get("http://yun.gnway.com/gnapi/groupuser/"+id+"?access-token="+ token)
     s = r.status_code
     z = r.text
     g = z[15:17]
+    #if z[-40:-38] == "53":
+     #   print z[-40:-38]
+    
     if g =="00":
-        print (g)
+        
         global success
         success += 1
     else:
-        print ("getgyyuser_random:01")
+        print "getgyyuser_random:01"
         global failed
         failed += 1
+    return z
+#7.4、编辑用户
 
-
-#7.5、删除终端用户
-def getgyydeleteuser(id):
+def gyyEdituser(id, customid, username, descript , password , repassword , contact , email , maxloginnum , remark , repeatlogin , is_modify_passwd):
+    maxloginnum1 = ord(maxloginnum)+1
     
     token = postgyytoken()
+    url = "http://yun.gnway.com/gnapi/groupuser/"+id+"?access-token="+ token
+    data ={"customid": customid ,"username": username , "descript": descript ,"password": password ,"repassword": repassword,"contact": contact ,"email": email ,"maxloginnum": maxloginnum1,"remark": remark ,"repeatlogin": repeatlogin ,"is_modify_passwd":is_modify_passwd}
+    #headers = {'Content-Type':'application/json; charset=UTF-8',}
+    
+    r = requests.put(url=url,data =data)
+    
+    s = r.status_code
+    z = r.text
+    d = z[-7:-2]
+    g = z[15:17]
+    time.sleep(2)
+    
+    getgyyuser_random(id)
     
     
+    if g =="00":
+        global success
+        success += 1
+    else:
+        print "gyyEdituser:01"
+        global failed
+        failed += 1
+        
+    return d
+#7.5、删除终端用户    
+def deleuser(id):
+    token = postgyytoken()
     r=requests.delete("http://yun.gnway.com/gnapi/groupuser/"+id+"?access-token="+ token)
     s = r.status_code
     z = r.text
     g = z[15:17]
-
     if g =="00":
-        print (g)
+        
         global success
         success += 1
     else:
-        print ("getgyydeleteuser:01")
+        print "getgyydeleteuser:01"
         global failed
         failed += 1
 
-        
-#10.1、OEM获取客户详细信息
-def getoem(customid):
-    
+#7.6、获取终端用户程序名称和url的接口
+def GetGyyUsersName(id):
     token = postgyytoken()
-    #print token
-    #print ("http://yun.gnway.com/gnapi/custombyhost/"+hostid+"?access-token="+ token)
-    r=requests.get("http://yun.gnway.com/gnapi/custominfo/"+customid+"?access-token="+ token)
+    r=requests.get("http://yun.gnway.com/gnapi/groupuserapps/"+id+"?access-token="+ token)
+    
     s = r.status_code
     z = r.text
     g = z[15:17]
     
     if g =="00":
-        print (g)
+        print g
         global success
         success += 1
     else:
-        print ("getoem:01")
+        print "getgyyuser:01"
         global failed
         failed += 1
+    
+    return z
+#7.7、根据用户名获取发布的应用信息
+def postgyyUserApplication(descript, username):
+    token = postgyytoken()
+    url = "http://yun.gnway.com/gnapi/guserapps?access-token="+ token
+    
+    data ={"cname": descript, "gname": username}
+    
+    #headers = {'Content-Type':'application/json; charset=UTF-8',}
+    r = requests.post(url=url,data =data)
+    s = r.status_code
+    z = r.text
+    g = z[15:17]
+    
+    if g =="00":
+        print g
+        global success
+        success += 1
+    else:
+        print "getgyyuser:01"
+        global failed
+        failed += 1
+        
+    return z
 
 #11.1、基于服务器上报的数据，跟网页客户页面保持一致
 def getgyyzxrs(customid):
@@ -380,14 +447,14 @@ def getgyyzxrs(customid):
     g = z[15:17]
     
     if g =="00":
-        print (g)
+        print g
         global success
         success += 1
     else:
-        print ("getgyyzxrs:01")
+        print "getgyyzxrs:01"
         global failed
         failed += 1
-
+    return
  #11.2、基于连接服务器的接口的数据，跟终端用户详情页面保持一致
 def getgyyzxrs2(customid):
     
@@ -400,76 +467,70 @@ def getgyyzxrs2(customid):
     g = z[15:17]
     
     if g =="00":
-        print (g)
+        print g
         global success
         success += 1
     else:
-        print ("getgyyzxrs2:01")
+        print "getgyyzxrs2:01"
         global failed
         failed += 1
-
-if __name__=="__main__":
+    return        
+#新建、查询、删除用户
+def GyyUserOperation(customid, username, descript , password , repassword , contact , email , maxloginnum , remark , repeatlogin , is_modify_passwd):
+    token = postgyytoken()
+    id = postgyyaddgroupuser(customid, username, descript , password , repassword , contact , email , maxloginnum , remark , repeatlogin , is_modify_passwd)
+    time.sleep(2)
+    #本伙伴单个用户信息
+    getgyyuser_random(id)
+    time.sleep(3)
+    #编辑用户
+    gyyEdituser(id +"", customid +"", "8ng11", "", "mi", "mi", "", "", "4", "", "true", "1")
     
- #   getgyyzj("hdlagent","GNway123451")
-  #  getgyymgzj("959")
-   # getgyymgyh("12327")
-    #(4.3、获取主机列表)获取获取主机列表成功
-    postgyytoken()
-    print('------------')
+    time.sleep(2)
+    #删除用户
+    deleuser(id)
+#创建公司、修改公司、加时间、减时间、退订
+def caozou(hostid, domain, descript , username , password , contact , email , remark):
+    dqsj = gettime.get_lastday_month(1)
+    gsid = postgyycustomid(hostid, domain, descript , username , password , contact , email , remark)
+#获取新建用户
+    getgyymgyh(gsid+"")
+    #给公司加时间
+    postgyyaddtime("959",gsid+"",dqsj+"")
+    #公司到期时间
+    getgyymgyhdqsj(gsid+"")
+    #修改公司用户数（添加）
+    postgyyaddusers("959",gsid+"","1")
+#减少用户数
+    postgyysubusers("959",gsid+"","1")
+    #获取用户数
+    getgyymgyhs(gsid+"")
+    ##新建、查询、删除用户
+    GyyUserOperation(gsid+"", "8ng11", "", "mi", "mi", "", "", "", "", "true", "1")
+    time.sleep(5)
+
+    #获取主机列表
     getgyyzj()
-    print('------------------')
-#(4.4、获取某个主机下的客户列表)获取某个主机下的用户列表成功(hostid)
+    #获取某个主机下的客户列表
     getgyymgzj("959")
-
-#(5.2、获取所有客户信息)获取所有客户信息正确
+    #获取应用详细信息
+    getgyyyyxx(gsid+"")
+    #获取所有客户信息)
     getgyykh()
+    
+    getgyyzxrs2(gsid+"")
+    getgyyzxrs(gsid+"")
+    time.sleep(300)
+    #用户退订
+    postgyyorder(gsid+"")
+    return
+if __name__=="__main__":
+    # 多个字符中生成指定数量的随机字符：
+    ran_str = ''.join(random.sample('zyxwvutsrqponmlkjihgfedcba',8))
 
-#(5.3、获取单个客户信息) 获取某个用户信息成功(customid)
-    getgyymgyh("12327")
+    caozou("959",ran_str +".yun.gnway.com",ran_str+"",ran_str+"",ran_str+"","","","ceshi")
 
-#(5.5、获取当前客户允许用户数)获取某个客户允许用户数成功(customid)
-    getgyymgyhs("12327")
-
-#5.6、修改用户数（增加）(hostid,customid,maxonlinenum)
-#jiekou.postgyyaddusers("959","12879","1")
-
-#5.7、修改用户数（减少）(hostid,customid,maxonlinenum)
-#jiekou.postgyysubusers("959","12879","1")
-
-
-#(5.8、获取当前客户到期时间)获取某个客户允许用户到期时间成功(customid)
-    getgyymgyhdqsj("12327")
-
-#5.9、添加时长（月）
-#jiekou.postgyyaddtime("959","12879","2019-02-28")
-
-#5.10、用户退订(customid)
-#jiekou.postgyyorder("12879")
-
-#(6.1、获取应用详细信息)获取发布应用信息成功(customid)
-    getgyyyyxx("13431")
-
-#7.2、获取本伙伴下所有用户成功
-    getgyyuser()
-
-#7.3、本伙伴单个用户信息成功(id)
-    getgyyuser_random("649")
-
-#获取10.1、OEM获取客户详细信息成功(customid)
-    getoem("12327")
-
-#7.5、删除终端用户(id)
-#jiekou.getgyydeleteuser("35691")
-
-#11.1、基于服务器上报的数据，跟网页客户页面保持一致接口成功(customid)
-    getgyyzxrs("12327")
-
-#11.2、基于连接服务器的接口的数据，跟终端用户详情页面保持一致接口成功(customid)
-    getgyyzxrs2("12327")
-       
+           
     result = str(success) + " successed, " + str(failed) + " failed"
     print(result)
     result.index("0 failed")
-
-     
-
