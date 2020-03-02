@@ -12,3 +12,6 @@ with open(path, "rb") as f2:
     newData = data.decode("utf-8") #解码
     print(newData)
     print(type(newData))
+    
+    
+    #测试分支时添加本行，本行无用

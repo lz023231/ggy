@@ -21,7 +21,7 @@ class LoginTest(unittest.TestCase):
         Login().login(self.driver, username, password)
         time.sleep(2)
         try:
-            self.driver.find_element_by_xpath("//strong[contains(text(),'您输入的账号或密码有错误，请确认后重试！')]")
+            self.driver.find_element_by_xpath("//strong[contains(text(),'您输入的账号或密码有错误，请确认后重试！')]").is_displayed()
         except:
             print("密码错误时没有出现提示")
 
@@ -107,4 +107,7 @@ if __name__ == '__main__':
     fp.close()
     sendMail.sendMail(filePath, n)
     '''
-    run.runer(basedir="./", parrten="main.py")
+    #run.runer(basedir="./", parrten="main.py")
+    test_dir = './'
+    discover = unittest.defaultTestLoader.discover(start_dir=test_dir, pattern='main.py')
+    run(discover)
